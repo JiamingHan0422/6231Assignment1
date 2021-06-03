@@ -1,3 +1,5 @@
+package recordFile;
+
 public class CernterServer {
 
     String T_FirstName,T_LastName, Address, Phone, Specialization, Location;
@@ -10,16 +12,4 @@ public class CernterServer {
 
     }
 
-    public void TRecord(){
-        //
-    }
-    public void SRecord(){
-        //
-    }
-    public void getRecordCounts(){
-        //
-    }
-    public void editRecordCounts(){
-        //
-    }
 }

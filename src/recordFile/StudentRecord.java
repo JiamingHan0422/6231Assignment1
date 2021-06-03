@@ -1,3 +1,5 @@
+package recordFile;
+
 public class StudentRecord {
     String firstName,lastName, CoursesRegistered, multiple, Status, StatusDate;
     public StudentRecord(String firstName, String lastName, String CoursesRegistered,
