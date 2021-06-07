@@ -2,7 +2,6 @@ package ServerFile;
 
 
 import recordFile.Record;
-import recordFile.StudentRecord;
 
 import java.io.File;
 import java.rmi.RemoteException;
@@ -26,12 +25,20 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     }
 
     @Override
-    public void createTRecord(String firstName, String lastName, String Address, String Phone, String Specialization, String Location) throws RemoteException {
+    public boolean createTRecord(String managerID, String firstName, String lastName, String Address, String Phone, String Specialization, String Location) throws RemoteException {
 
+        System.out.println(managerID);
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(Address);
+        System.out.println(Phone);
+        System.out.println(Specialization);
+
+        return true;
     }
 
     @Override
-    public void createSRecord(String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
+    public void createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
 
     }
 
