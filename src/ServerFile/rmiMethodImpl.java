@@ -2,10 +2,12 @@ package ServerFile;
 
 
 import recordFile.Record;
+import recordFile.TeacherRecord;
 
 import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -14,9 +16,9 @@ import java.util.HashMap;
  */
 public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
 
-    HashMap<Character, Record> HashMapMTL = new HashMap<Character, Record>();
-    HashMap<Character, Record> HashMapLVL = new HashMap<Character, Record>();
-    HashMap<Character, Record> HashMapDDO = new HashMap<Character, Record>();
+    HashMap<Character, ArrayList<Record>> HashMapMTL = new HashMap<Character, ArrayList<Record>>();
+    HashMap<Character, ArrayList<Record>> HashMapLVL = new HashMap<Character, ArrayList<Record>>();
+    HashMap<Character, ArrayList<Record>> HashMapDDO = new HashMap<Character, ArrayList<Record>>();
 
 
     protected rmiMethodImpl() throws RemoteException {
@@ -30,9 +32,64 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
         System.out.println(managerID);
         System.out.println(firstName);
         System.out.println(lastName);
-        System.out.println(Address);
-        System.out.println(Phone);
-        System.out.println(Specialization);
+
+        TeacherRecord NewTRecord = new TeacherRecord(firstName, lastName, Address, Phone, Specialization, Location);
+        ArrayList<Record> Recordlist = new ArrayList<>();
+
+
+        if(managerID.startsWith("MTL")){
+            char Mark;
+            Mark = firstName.charAt(0);
+            if(HashMapMTL.containsKey(Mark)){
+                Recordlist = HashMapMTL.get(Mark);
+                Recordlist.add(NewTRecord);
+                HashMapMTL.replace(Mark, Recordlist);
+
+                /**
+                for(int i = 0; i < HashMapMTL.get(Mark).size(); i++) {
+                    System.out.println(HashMapMTL.get(Mark).get(i).firstName + "\n");
+                }
+                 **/
+            }
+            else{
+                Recordlist.add(NewTRecord);
+                HashMapMTL.put(Mark, Recordlist);
+            }
+
+        }
+        else if(managerID.startsWith("LVL")){
+
+            char Mark;
+            Mark = firstName.charAt(0);
+            if(HashMapLVL.containsKey(Mark)){
+                Recordlist = HashMapLVL.get(Mark);
+                Recordlist.add(NewTRecord);
+                HashMapLVL.replace(Mark, Recordlist);
+
+            }
+            else{
+                Recordlist.add(NewTRecord);
+                HashMapLVL.put(Mark, Recordlist);
+            }
+        }
+        else if(managerID.startsWith("DDO")){
+
+            char Mark;
+            Mark = firstName.charAt(0);
+            if(HashMapDDO.containsKey(Mark)){
+                Recordlist = HashMapDDO.get(Mark);
+                Recordlist.add(NewTRecord);
+                HashMapDDO.replace(Mark, Recordlist);
+
+            }
+            else{
+                Recordlist.add(NewTRecord);
+                HashMapDDO.put(Mark, Recordlist);
+            }
+        }
+        else{
+            System.out.println("Access Deny!(ManagerID is invalid)");
+        }
 
         return true;
     }

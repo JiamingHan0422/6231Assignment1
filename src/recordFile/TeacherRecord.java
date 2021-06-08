@@ -15,4 +15,5 @@ public class TeacherRecord extends Record{
         this.Location = Location;
         this.Specialization = Specialization;
     }
+
 }
