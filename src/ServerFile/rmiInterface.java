@@ -14,8 +14,8 @@ public interface rmiInterface extends Remote {
     public boolean createTRecord (String managerID, String firstName, String lastName, String Address,
                                   String Phone, String Specialization, String Location)throws java.rmi.RemoteException;
 
-    public void createSRecord (String managerID, String firstName, String lastName, String CoursesRegistered,
-                               String multiple, String Status, String StatusDate)throws java.rmi.RemoteException;
+    public boolean createSRecord (String managerID, String firstName, String lastName, String CoursesRegistered,
+                                  String multiple, String Status, String StatusDate)throws java.rmi.RemoteException;
 
     public void editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;
 

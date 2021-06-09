@@ -2,6 +2,7 @@ package ServerFile;
 
 
 import recordFile.Record;
+import recordFile.StudentRecord;
 import recordFile.TeacherRecord;
 
 import java.io.File;
@@ -95,7 +96,63 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     }
 
     @Override
-    public void createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
+    public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
+        System.out.println(managerID);
+        System.out.println(firstName);
+        System.out.println(lastName);
+
+        StudentRecord NewSRecord = new StudentRecord(firstName, lastName, CoursesRegistered, multiple, Status, StatusDate);
+        ArrayList<Record> Recordlist = new ArrayList<>();
+
+        if(managerID.startsWith("MTL")){
+            char Mark;
+            Mark = firstName.charAt(0);
+            if(HashMapMTL.containsKey(Mark)){
+                Recordlist = HashMapMTL.get(Mark);
+                Recordlist.add(NewSRecord);
+                HashMapMTL.replace(Mark, Recordlist);
+
+            }
+            else{
+                Recordlist.add(NewSRecord);
+                HashMapMTL.put(Mark, Recordlist);
+            }
+        }
+
+        else if(managerID.startsWith("LVL")){
+
+            char Mark;
+            Mark = firstName.charAt(0);
+            if(HashMapLVL.containsKey(Mark)){
+                Recordlist = HashMapLVL.get(Mark);
+                Recordlist.add(NewSRecord);
+                HashMapLVL.replace(Mark, Recordlist);
+
+            }
+            else{
+                Recordlist.add(NewSRecord);
+                HashMapLVL.put(Mark, Recordlist);
+            }
+        }
+        else if(managerID.startsWith("DDO")){
+
+            char Mark;
+            Mark = firstName.charAt(0);
+            if(HashMapDDO.containsKey(Mark)){
+                Recordlist = HashMapDDO.get(Mark);
+                Recordlist.add(NewSRecord);
+                HashMapDDO.replace(Mark, Recordlist);
+
+            }
+            else{
+                Recordlist.add(NewSRecord);
+                HashMapDDO.put(Mark, Recordlist);
+            }
+        }
+        else{
+            System.out.println("Access Deny!(ManagerID is invalid)");
+        }
+        return true;
 
     }
 
