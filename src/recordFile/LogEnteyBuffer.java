@@ -1,23 +1,34 @@
 package recordFile;
 
-import java.util.logging.LogRecord;
-import java.util.logging.StreamHandler;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
 
 
-public class LogEnteyBuffer extends StreamHandler {
+public class LogEnteyBuffer extends OutputStream {
+    private List<OutputStream> d_OutputStreams;
 
-    @Override
-    public synchronized void publish(LogRecord record) {
-        super.publish(record);
+    public LogEnteyBuffer (List<OutputStream> d_OutputStreams){
+        this.d_OutputStreams = d_OutputStreams;
     }
 
     @Override
-    public synchronized void flush() {
-        super.flush();
+    public void write(int recordCount) throws IOException {
+        for(OutputStream OS : d_OutputStreams)
+            OS.write(recordCount);
     }
 
     @Override
-    public synchronized void close() throws SecurityException {
-        super.close();
+    public void flush() throws IOException {
+        for(OutputStream OS : d_OutputStreams){
+            OS.flush();
+        }
+    }
+
+    @Override
+    public void close() throws IOException {
+        for(OutputStream OS : d_OutputStreams){
+            OS.close();
+        }
     }
 }
