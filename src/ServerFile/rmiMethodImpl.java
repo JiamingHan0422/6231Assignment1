@@ -162,7 +162,7 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     }
 
     @Override
-    public String getRecordCounts() throws RemoteException {
-        return null;
+    public int getRecordCounts() throws RemoteException {
+        return 0;
     }
 }

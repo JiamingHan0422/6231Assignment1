@@ -19,5 +19,5 @@ public interface rmiInterface extends Remote {
 
     public void editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;
 
-    public String getRecordCounts() throws java.rmi.RemoteException;
+    public int getRecordCounts() throws java.rmi.RemoteException;
 }
