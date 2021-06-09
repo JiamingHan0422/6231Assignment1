@@ -1,12 +1,15 @@
 package recordFile;
 
-public class StudentRecord {
-    String firstName,lastName, CoursesRegistered, multiple, Status, StatusDate;
+public class StudentRecord extends Record{
+
+    String CoursesRegistered;
+    String multiple;
+    String Status;
+    String StatusDate;
     public StudentRecord(String firstName, String lastName, String CoursesRegistered,
                          String multiple, String Status, String StatusDate){
 
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(firstName, lastName);
         this.CoursesRegistered = CoursesRegistered;
         this.multiple = multiple;
         this.Status = Status;
