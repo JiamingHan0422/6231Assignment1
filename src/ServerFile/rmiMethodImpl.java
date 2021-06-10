@@ -20,7 +20,7 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     HashMap<Character, ArrayList<Record>> HashMapMTL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapLVL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapDDO = new HashMap<Character, ArrayList<Record>>();
-
+    int count =0;
 
     protected rmiMethodImpl() throws RemoteException {
         super();
@@ -162,6 +162,7 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
 
     @Override
     public int getRecordCounts() throws RemoteException {
-        return 0;
+        //三个在服务器中每调用一次logEntryBuffer, 则 count ++
+        return count;
     }
 }
