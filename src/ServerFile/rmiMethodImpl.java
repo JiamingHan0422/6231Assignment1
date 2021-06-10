@@ -23,7 +23,6 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
 
 
     protected rmiMethodImpl() throws RemoteException {
-
         super();
     }
 
