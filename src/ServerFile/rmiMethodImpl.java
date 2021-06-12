@@ -7,8 +7,10 @@ import recordFile.TeacherRecord;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -316,5 +318,13 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiCenterServe
     @Override
     public String getRecordCounts() throws RemoteException {
         return null;
+    }
+
+    public  String getTime(){
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        String time = date.toString();
+        return time;
     }
 }

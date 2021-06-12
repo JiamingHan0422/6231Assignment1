@@ -1,0 +1,127 @@
+Index: src/clientFile/RMIClient.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package clientFile;\r\n\r\nimport ServerFile.rmiInterface;\r\n\r\nimport java.net.MalformedURLException;\r\nimport java.rmi.Naming;\r\nimport java.rmi.NotBoundException;\r\nimport java.rmi.RemoteException;\r\nimport java.rmi.registry.LocateRegistry;\r\nimport java.rmi.registry.Registry;\r\nimport java.util.Scanner;\r\n\r\npublic class RMIClient {\r\n\r\n    /**\r\n     * Check manager's validation\r\n     * @return\r\n     */\r\n    int ManagerValid(){return 0;}\r\n\r\n    /**\r\n     * main method\r\n     */\r\n    void init() { }\r\n\r\n\r\n    public static void main(String[] args){\r\n        try{\r\n\r\n            String ManagerID;\r\n            int ManagerInput;\r\n            Scanner ManagerScanner = new Scanner(System.in);\r\n            System.out.println(\"Please input the ManagerID.\");\r\n            ManagerID = ManagerScanner.nextLine();\r\n            // 如果RMI Registry就在本地机器上，URL就是:rmi://localhost:1099/hello\r\n            // 否则，URL就是：rmi://RMIService_IP:1099/hello\r\n            Registry registry = LocateRegistry.getRegistry(\"localhost\");\r\n            rmiInterface r_Interface = (rmiInterface) Naming.lookup(\"rmi://localhost:6231/r_Interface\");\r\n            // 从Registry中检索远程对象的存根/代理\r\n            //System.out.println(r_Interface.getRecordCounts());\r\n            // 调用远程对象的方法\r\n            //double addResult = r_Interface.add(5.0, 3.0);\r\n            //System.out.println(\"5.0 + 3.0 = \" + addResult);\r\n            do{\r\n\r\n\r\n                System.out.println(\"Welcome: \" + ManagerID);\r\n                System.out.println(\"Please select the function.\");\r\n                System.out.println(\r\n                        \"1.Create Teacher Record. \" + \"\\n\" +\r\n                        \"2.Create Student Record.\"  + \"\\n\" +\r\n                        \"3.Get Record Counts.\" + \"\\n\" +\r\n                        \"4. Edit Record\");\r\n                ManagerInput = ManagerScanner.nextInt();\r\n\r\n                switch(ManagerInput){\r\n\r\n                    case 1:\r\n                        System.out.println(\"Please Create Teacher Record.\");\r\n                        System.out.println(\"Enter: firstName lastName address phone specialization location(mtl,lvl,ddo) \");\r\n                        String firstName = ManagerScanner.next();\r\n                        String lastName = ManagerScanner.next();\r\n                        String address = ManagerScanner.next();\r\n                        String phone = ManagerScanner.next();\r\n                        String specialization = ManagerScanner.next();\r\n                        String location = ManagerScanner.next();\r\n\r\n                        boolean result = r_Interface.createTRecord(ManagerID, firstName, lastName, address, phone, specialization, location );\r\n                        if (result){\r\n                            System.out.println(\"success!\");\r\n                        }\r\n                        else{\r\n                            System.out.println(\"access deny.\");\r\n                        }\r\n                }\r\n\r\n            }while(true);\r\n\r\n        }\r\n\r\n        catch (RemoteException e) {\r\n            e.printStackTrace();\r\n        } catch (NotBoundException e) {\r\n            e.printStackTrace();\r\n        } catch (MalformedURLException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/clientFile/RMIClient.java b/src/clientFile/RMIClient.java
+--- a/src/clientFile/RMIClient.java	(revision 2535bdef7d6e914a76f86fe9f397b103b363571c)
++++ b/src/clientFile/RMIClient.java	(date 1623456898539)
+@@ -50,7 +50,8 @@
+                         "1.Create Teacher Record. " + "\n" +
+                         "2.Create Student Record."  + "\n" +
+                         "3.Get Record Counts." + "\n" +
+-                        "4. Edit Record");
++                        "4. Edit Record." + "\n" +
++                        "5. Print Record.");
+                 ManagerInput = ManagerScanner.nextInt();
+ 
+                 switch(ManagerInput){
+@@ -72,6 +73,23 @@
+                         else{
+                             System.out.println("access deny.");
+                         }
++                        break;
++
++                    case 2:
++
++                    case 3:
++
++                    case 4:
++
++                    case 5:
++                        result = r_Interface.printRecord(ManagerID);
++                        if (result){
++                            System.out.println("success!");
++                        }
++                        else{
++                            System.out.println("access deny.");
++                        }
++                        break;
+                 }
+ 
+             }while(true);
+Index: src/ServerFile/rmiInterface.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ServerFile;\r\n\r\nimport java.io.File;\r\nimport java.rmi.Remote;\r\n\r\npublic interface rmiInterface extends Remote {\r\n    /**\r\n * 远程接口方法必须抛出 java.rmi.RemoteException\r\n     * @return\r\n     */\r\n    // 所有方法必须抛出RemoteException\r\n\r\n\r\n    public boolean createTRecord (String managerID, String firstName, String lastName, String Address,\r\n                                  String Phone, String Specialization, String Location)throws java.rmi.RemoteException;\r\n\r\n    public void createSRecord (String managerID, String firstName, String lastName, String CoursesRegistered,\r\n                               String multiple, String Status, String StatusDate)throws java.rmi.RemoteException;\r\n\r\n    public void editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;\r\n\r\n    public String getRecordCounts() throws java.rmi.RemoteException;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ServerFile/rmiInterface.java b/src/ServerFile/rmiInterface.java
+--- a/src/ServerFile/rmiInterface.java	(revision 2535bdef7d6e914a76f86fe9f397b103b363571c)
++++ b/src/ServerFile/rmiInterface.java	(date 1623456794385)
+@@ -2,6 +2,7 @@
+ 
+ import java.io.File;
+ import java.rmi.Remote;
++import java.rmi.RemoteException;
+ 
+ public interface rmiInterface extends Remote {
+     /**
+@@ -14,10 +15,13 @@
+     public boolean createTRecord (String managerID, String firstName, String lastName, String Address,
+                                   String Phone, String Specialization, String Location)throws java.rmi.RemoteException;
+ 
+-    public void createSRecord (String managerID, String firstName, String lastName, String CoursesRegistered,
++    public boolean createSRecord (String managerID, String firstName, String lastName, String CoursesRegistered,
+                                String multiple, String Status, String StatusDate)throws java.rmi.RemoteException;
+ 
+-    public void editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;
++    public boolean editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;
++
++    public boolean printRecord (String ManagerID) throws java.rmi.RemoteException;
++
+ 
+     public String getRecordCounts() throws java.rmi.RemoteException;
+ }
+Index: src/ServerFile/rmiMethodImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ServerFile;\r\n\r\n\r\nimport recordFile.Record;\r\nimport recordFile.TeacherRecord;\r\n\r\nimport java.io.File;\r\nimport java.rmi.RemoteException;\r\nimport java.rmi.server.UnicastRemoteObject;\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\n\r\n/**\r\n * 服务器端实现远程接口。\r\n * 必须继承UnicastRemoteObject，以允许JVM创建远程的存根/代理。\r\n */\r\npublic class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {\r\n\r\n    HashMap<Character, ArrayList<Record>> HashMapMTL = new HashMap<Character, ArrayList<Record>>();\r\n    HashMap<Character, ArrayList<Record>> HashMapLVL = new HashMap<Character, ArrayList<Record>>();\r\n    HashMap<Character, ArrayList<Record>> HashMapDDO = new HashMap<Character, ArrayList<Record>>();\r\n\r\n\r\n    protected rmiMethodImpl() throws RemoteException {\r\n\r\n        super();\r\n    }\r\n\r\n    @Override\r\n    public boolean createTRecord(String managerID, String firstName, String lastName, String Address, String Phone, String Specialization, String Location) throws RemoteException {\r\n\r\n        System.out.println(managerID);\r\n        System.out.println(firstName);\r\n        System.out.println(lastName);\r\n\r\n        TeacherRecord NewTRecord = new TeacherRecord(firstName, lastName, Address, Phone, Specialization, Location);\r\n        ArrayList<Record> Recordlist = new ArrayList<>();\r\n\r\n\r\n        if(managerID.startsWith(\"MTL\")){\r\n            char Mark;\r\n            Mark = firstName.charAt(0);\r\n            if(HashMapMTL.containsKey(Mark)){\r\n                Recordlist = HashMapMTL.get(Mark);\r\n                Recordlist.add(NewTRecord);\r\n                HashMapMTL.replace(Mark, Recordlist);\r\n\r\n                /**\r\n                for(int i = 0; i < HashMapMTL.get(Mark).size(); i++) {\r\n                    System.out.println(HashMapMTL.get(Mark).get(i).firstName + \"\\n\");\r\n                }\r\n                 **/\r\n            }\r\n            else{\r\n                Recordlist.add(NewTRecord);\r\n                HashMapMTL.put(Mark, Recordlist);\r\n            }\r\n\r\n        }\r\n        else if(managerID.startsWith(\"LVL\")){\r\n\r\n            char Mark;\r\n            Mark = firstName.charAt(0);\r\n            if(HashMapLVL.containsKey(Mark)){\r\n                Recordlist = HashMapLVL.get(Mark);\r\n                Recordlist.add(NewTRecord);\r\n                HashMapLVL.replace(Mark, Recordlist);\r\n\r\n            }\r\n            else{\r\n                Recordlist.add(NewTRecord);\r\n                HashMapLVL.put(Mark, Recordlist);\r\n            }\r\n        }\r\n        else if(managerID.startsWith(\"DDO\")){\r\n\r\n            char Mark;\r\n            Mark = firstName.charAt(0);\r\n            if(HashMapDDO.containsKey(Mark)){\r\n                Recordlist = HashMapDDO.get(Mark);\r\n                Recordlist.add(NewTRecord);\r\n                HashMapDDO.replace(Mark, Recordlist);\r\n\r\n            }\r\n            else{\r\n                Recordlist.add(NewTRecord);\r\n                HashMapDDO.put(Mark, Recordlist);\r\n            }\r\n        }\r\n        else{\r\n            System.out.println(\"Access Deny!(ManagerID is invalid)\");\r\n        }\r\n\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public void createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void editRecord(String recordID, File fieldName, String newValue) throws RemoteException {\r\n\r\n    }\r\n\r\n    @Override\r\n    public String getRecordCounts() throws RemoteException {\r\n        return null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ServerFile/rmiMethodImpl.java b/src/ServerFile/rmiMethodImpl.java
+--- a/src/ServerFile/rmiMethodImpl.java	(revision 2535bdef7d6e914a76f86fe9f397b103b363571c)
++++ b/src/ServerFile/rmiMethodImpl.java	(date 1623456898548)
+@@ -95,13 +95,35 @@
+     }
+ 
+     @Override
+-    public void createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
+-
++    public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
++        return true;
+     }
+ 
+     @Override
+-    public void editRecord(String recordID, File fieldName, String newValue) throws RemoteException {
++    public boolean editRecord(String recordID, File fieldName, String newValue) throws RemoteException {
++        return true;
++    }
++
++    @Override
++    public boolean printRecord(String ManagerID) throws RemoteException {
++
++
++        if(ManagerID.startsWith("MTL")){
++            System.out.println("MTLLLLLLLLLLLLLLLLLLLLLLLLLL");
++            System.out.println(HashMapMTL);
+ 
++        }
++        else if(ManagerID.startsWith("LVL")){
++
++            System.out.println(HashMapMTL);
++        }
++        else if(ManagerID.startsWith("DDO")){
++
++            System.out.println(HashMapMTL);
++
++        }
++
++        return true;
+     }
+ 
+     @Override
