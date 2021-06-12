@@ -9,6 +9,7 @@ import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -93,7 +94,10 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     @Override
     public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String Status, String StatusDate) throws RemoteException {
 
-
+        if(!(Status.equals("active")||Status.equals("inactive"))){
+            System.out.println("The Status is invalid.");
+            return false;
+        }
         StudentRecord NewSRecord = new StudentRecord(firstName, lastName, CoursesRegistered, Status, StatusDate);
         ArrayList<Record> Recordlist = new ArrayList<>();
 
@@ -150,50 +154,157 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     }
 
     @Override
-    public boolean editRecord(String recordID, File fieldName, String newValue) throws RemoteException {
+    public boolean editRecord(String managerID, String recordID, String fieldName, String newValue) throws RemoteException {
+
+        Collection<ArrayList<Record>> allRecord = new ArrayList<>();
+        int mark = 0;
+        Record target = null;
+        if(managerID.startsWith("MTL")){
+
+            allRecord = HashMapMTL.values();
+
+            for(ArrayList<Record> recordList : allRecord){
+                for(Record record : recordList){
+
+                    if (record.getID().equals(recordID)){
+                        target = record;
+                        mark = 1;
+                    }
+                    break;
+                }
+                if(mark == 1){
+                    break;
+                }
+            }
+            if(target != null){
+                if(target instanceof TeacherRecord){
+                    synchronized (target) {
+                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        System.out.println(target);
+                    }
+                }
+                else {
+                    synchronized (target) {
+                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        System.out.println(target);
+                    }
+                }
+            }
+        }
+
+
+        else if(managerID.startsWith("LVL")){
+            allRecord = HashMapMTL.values();
+
+            for(ArrayList<Record> recordList : allRecord){
+                for(Record record : recordList){
+
+                    if (record.getID().equals(recordID)){
+                        target = record;
+                        mark = 1;
+                    }
+                    break;
+                }
+                if(mark == 1){
+                    break;
+                }
+            }
+            if(target != null){
+                if(target instanceof TeacherRecord){
+                    synchronized (target) {
+                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        System.out.println(target);
+                    }
+                }
+                else {
+                    synchronized (target) {
+                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        System.out.println(target);
+                    }
+                }
+            }
+
+
+        }
+
+
+        else if (managerID.startsWith("DDO")){
+
+            allRecord = HashMapMTL.values();
+
+            for(ArrayList<Record> recordList : allRecord){
+                for(Record record : recordList){
+
+                    if (record.getID().equals(recordID)){
+                        target = record;
+                        mark = 1;
+                    }
+                    break;
+                }
+                if(mark == 1){
+                    break;
+                }
+            }
+            if(target != null){
+                if(target instanceof TeacherRecord){
+                    synchronized (target) {
+                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        System.out.println(target);
+                    }
+                }
+                else {
+                    synchronized (target) {
+                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        System.out.println(target);
+                    }
+                }
+            }
+
+        }
+
         return true;
     }
 
     @Override
-    public boolean printRecord(String ManagerID) throws RemoteException {
+    public boolean printRecord(String managerID) throws RemoteException {
 
         ArrayList<Record> Recordlist = new ArrayList<>();
-        if(ManagerID.startsWith("MTL")){
+        if(managerID.startsWith("MTL")){
 
             for(char key: HashMapMTL.keySet()) {
 
                 // 输出每个 key
-                System.out.print(key + ", ");
+                System.out.print("\n" + key + ", ");
                 Recordlist = HashMapMTL.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
-                    System.out.print(Recordlist.get(i).getName() + " ");
+                    System.out.print("ID:" + Recordlist.get(i).getID() + "Name" + Recordlist.get(i).getName() + " ");
                 }
                 System.out.println("\n");
             }
 
         }
-        else if(ManagerID.startsWith("LVL")){
+        else if(managerID.startsWith("LVL")){
 
             for(char key: HashMapLVL.keySet()) {
 
                 // 输出每个 key
-                System.out.print(key + ", ");
+                System.out.print("\n" + key + ", ");
                 Recordlist = HashMapLVL.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
-                    System.out.print(Recordlist.get(i).getName() + " ");
+                    System.out.print("ID:" + Recordlist.get(i).getID() + " Name:" + Recordlist.get(i).getName() + " ");
                 }
                 System.out.println("\n");
             }
         }
-        else if(ManagerID.startsWith("DDO")){
+        else if(managerID.startsWith("DDO")){
 
             for(char key: HashMapDDO.keySet()) {
 
                 // 输出每个 key
-                System.out.print(key + ", ");
+                System.out.print("\n" + key + ", ");
                 Recordlist = HashMapDDO.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
-                    System.out.print(Recordlist.get(i).getName() + " ");
+                    System.out.print("ID:" + Recordlist.get(i).getID() + "Name" + Recordlist.get(i).getName() + " ");
                 }
                 System.out.println("\n");
             }

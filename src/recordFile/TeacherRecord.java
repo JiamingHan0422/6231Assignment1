@@ -13,30 +13,52 @@ public class TeacherRecord extends Record{
                          String Phone, String Specialization, String Location) {
 
         super(firstName, lastName);
-        this.recordID="SR"+String.valueOf(++idCounter);
+        this.recordID="TR"+String.valueOf(++idCounter);
         this.Address = Address;
         this.Phone = Phone;
         this.Location = Location;
         this.Specialization = Specialization;
     }
 
+    public String getAddress() {
+        return Address;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public String getSpecialization() {
+        return Specialization;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
     public boolean changeValue(String fieldName, String newValue){
 
         if(fieldName.equalsIgnoreCase("Address")){
+            System.out.println("Old value:" + this.Address);
             this.Address=newValue;
+            System.out.println("New value:" + this.Address);
             return true;
         }
         else if(fieldName.equalsIgnoreCase("Phone")){
+            System.out.println("Old value:" + this.Phone);
             this.Phone=newValue;
+            System.out.println("New value:" + this.Phone);
             return true;
         }
         else if(fieldName.equalsIgnoreCase("Location")){
-            if(newValue.equals("MTL")||newValue.equals("LVL")||newValue.equals("DDO")){
+            if(newValue.equals("mtl")||newValue.equals("lvl")||newValue.equals("ddo")){
+                System.out.println("Old value:" + this.Location);
                 this.Location=newValue;
+                System.out.println("New value:" + this.Location);
                 return true;
             }
             else
-                System.out.println("The Location is invalid.(MTL/LVL/DDO)");
+                System.out.println("The Location is invalid.(mtl/lvl/ddo)");
                 return false;
         }
         else {

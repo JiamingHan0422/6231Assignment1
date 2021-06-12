@@ -13,6 +13,11 @@ public class Record implements Serializable {
         this.lastName=lastName;
 
     }
+
+    public String getID(){
+        return this.recordID;
+    }
+
     public String getName(){
         String Name = this.firstName + " " + this.lastName;
         return Name;

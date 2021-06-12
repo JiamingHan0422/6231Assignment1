@@ -1,6 +1,7 @@
 package clientFile;
 
 import ServerFile.rmiInterface;
+import managerFile.Manager;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -32,6 +33,9 @@ public class RMIClient {
             Scanner ManagerScanner = new Scanner(System.in);
             System.out.println("Please input the ManagerID.");
             ManagerID = ManagerScanner.nextLine();
+            Manager manager = new Manager();
+            manager.setManagerID(ManagerID);
+
             // 如果RMI Registry就在本地机器上，URL就是:rmi://localhost:1099/hello
             // 否则，URL就是：rmi://RMIService_IP:1099/hello
             Registry registry = LocateRegistry.getRegistry("localhost");
@@ -77,7 +81,7 @@ public class RMIClient {
 
                     case 2:
                         System.out.println("Please Create Student Record.");
-                        System.out.println("Enter: firstName, lastName, CoursesRegister, Status, StatusDate");
+                        System.out.println("Enter: firstName, lastName, CoursesRegister, Status(active/inactive), StatusDate");
                         firstName = ManagerScanner.next();
                         lastName = ManagerScanner.next();
                         String CoursesRegister = ManagerScanner.next();
@@ -95,7 +99,28 @@ public class RMIClient {
                     case 3:
 
                     case 4:
+                        System.out.println("------------------------------------------------------");
+                        System.out.println("Please Input the RecordID, fieldName and the newValue.");
+                        System.out.println("------------------------------------------------------");
+                        System.out.println("The Teacher Record: address, phone, specialization, location(mtl,lvl,ddo) can be changed");
+                        System.out.println("------------------------------------------------------");
+                        System.out.println("The Student Record: CoursesRegister, Status(active/inactive), StatusDate can be changed");
+                        System.out.println("------------------------------------------------------");
+                        System.out.println("Enter: RecordID, fieldName, newValue,");
+                        System.out.println("------------------------------------------------------");
 
+                        String RecordID = ManagerScanner.next();
+                        String fieldName = ManagerScanner.next();
+                        String newValue = ManagerScanner.next();
+
+                        result = r_Interface.editRecord(ManagerID, RecordID, fieldName, newValue);
+                        if (result){
+                            System.out.println("success!");
+                        }
+                        else{
+                            System.out.println("access deny.");
+                        }
+                        break;
                     case 5:
                         result = r_Interface.printRecord(ManagerID);
                         if (result){

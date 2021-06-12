@@ -16,7 +16,7 @@ public class RMIServer {
             rmiInterface r_Interface = new rmiMethodImpl();
             LocateRegistry.createRegistry(6231);
             java.rmi.Naming.rebind("rmi://localhost:6231/r_Interface", r_Interface);
-            System.out.print("Server Ready! ");
+            System.out.print("Server Ready! " + "\n");
             // 如果不想再让该对象被继续调用，使用下面一行
             // UnicastRemoteObject.unexportObject(remoteMath, false);
         } catch (RemoteException | MalformedURLException e) {
