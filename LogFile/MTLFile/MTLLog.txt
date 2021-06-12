@@ -1,0 +1,59 @@
+ManagerID: MTL10001
+Create Teacher Record.
+Name: qwe qwe
+Address: qweqwe 
+Phone: qwe 
+Specialization: qwe 
+Location: mtl 
+Time: Sat Jun 12 21:25:01 CST 2021 
+
+
+ManagerID: MTL10001
+Create Student Record.
+Name: qqq qqq
+CoursesRegister: qqq 
+Status: active 
+StatusDate: 111 
+Time: Sat Jun 12 21:25:26 CST 2021 
+
+
+ManagerID: MTL123
+Create Teacher Record.
+Name: qwe qwe
+Address: qwe 
+Phone: qwe 
+Specialization: qew 
+Location: mtl 
+Time: Sat Jun 12 21:26:26 CST 2021 
+
+
+ManagerID: MTL123
+Create Teacher Record.
+Name: qqq qqq
+Address: qqq 
+Phone: qqq 
+Specialization: qqq 
+Location: mtl 
+Time: Sat Jun 12 21:26:35 CST 2021 
+
+
+ManagerID: MTL123
+Create Teacher Record.
+Name: eee eee
+Address: eee 
+Phone: eee 
+Specialization: eee 
+Location: mtl 
+Time: Sat Jun 12 21:27:41 CST 2021 
+
+
+ManagerID: MTL123
+Create Teacher Record.
+Name: qqq qqq
+Address: qqq 
+Phone: qqq 
+Specialization: qqq 
+Location: mtl 
+Time: Sat Jun 12 21:28:05 CST 2021 
+
+

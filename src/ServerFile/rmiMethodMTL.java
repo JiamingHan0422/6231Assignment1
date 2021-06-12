@@ -5,10 +5,16 @@ import recordFile.Record;
 import recordFile.StudentRecord;
 import recordFile.TeacherRecord;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -21,10 +27,51 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
     HashMap<Character, ArrayList<Record>> HashMapLVL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapDDO = new HashMap<Character, ArrayList<Record>>();
 
+    File loggingFile = new File("");
+    String FilePath = loggingFile.getAbsolutePath();
+
+
 
     protected rmiMethodMTL() throws RemoteException {
 
         super();
+        loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "MTLFile"+ "/" + "MTLLog" +".txt");
+        if(!loggingFile.exists()){
+            try {
+                loggingFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void writeLog(String log){
+        if(!this.loggingFile.exists()){
+            try {
+                this.loggingFile.createNewFile();
+                FileWriter fileWriter = new FileWriter(this.loggingFile, true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                bufferedWriter.write(log);
+                bufferedWriter.newLine();
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            try {
+                synchronized (this.loggingFile) {
+                    FileWriter fileWriter = new FileWriter(this.loggingFile, true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                    bufferedWriter.write(log);
+                    bufferedWriter.newLine();
+                    bufferedWriter.close();
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override
@@ -85,7 +132,18 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         }
         else{
             System.out.println("Access Deny!(ManagerID is invalid)");
+            return false;
         }
+
+        String writeInLog = "ManagerID: " + managerID + "\n" +
+                "Create Teacher Record." + "\n" +
+                "Name: " + firstName + " " + lastName + "\n" +
+                "Address: " + Address + " " + "\n" +
+                "Phone: " + Phone + " " + "\n" +
+                "Specialization: " + Specialization + " " + "\n" +
+                "Location: " + Location + " " + "\n" +
+                "Time: " + getTime() + " " + "\n" + "\n";
+        writeLog(writeInLog);
 
         return true;
     }
@@ -147,7 +205,18 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         }
         else{
             System.out.println("Access Deny!(ManagerID is invalid)");
+            return false;
         }
+
+        String writeInLog = "ManagerID: " + managerID + "\n" +
+                "Create Student Record." + "\n" +
+                "Name: " + firstName + " " + lastName + "\n" +
+                "CoursesRegister: " + CoursesRegistered + " " + "\n" +
+                "Status: " + Status + " " + "\n" +
+                "StatusDate: " + StatusDate + " " + "\n" +
+                "Time: " + getTime() + " " + "\n" + "\n";
+        this.writeLog(writeInLog);
+
         return true;
 
     }
@@ -188,6 +257,17 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                         System.out.println(target);
                     }
                 }
+                String writeInLog = "Edit Record." + "\n" +
+                        "ManagerID: " + managerID + "\n" +
+                        "RecordID: " + target.getID() + "\n" +
+                        "fieldName: " + fieldName + " " + "\n" +
+                        "newValue: " + newValue + " " + "\n" +
+                        "Time: " + getTime() + " " + "\n" + "\n";
+                writeLog(writeInLog);
+            }
+            else{
+                System.out.println("No Record.");
+                return false;
             }
         }
 
@@ -221,6 +301,17 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                         System.out.println(target);
                     }
                 }
+                String writeInLog = "Edit Record." + "\n" +
+                        "ManagerID: " + managerID + "\n" +
+                        "RecordID: " + target.getID() + "\n" +
+                        "fieldName: " + fieldName + " " + "\n" +
+                        "newValue: " + newValue + " " + "\n" +
+                        "Time: " + getTime() + " " + "\n" + "\n";
+                writeLog(writeInLog);
+            }
+            else{
+                System.out.println("No Record.");
+                return false;
             }
 
 
@@ -257,6 +348,17 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                         System.out.println(target);
                     }
                 }
+                String writeInLog = "Edit Record." + "\n" +
+                        "ManagerID: " + managerID + "\n" +
+                        "RecordID: " + target.getID() + "\n" +
+                        "fieldName: " + fieldName + " " + "\n" +
+                        "newValue: " + newValue + " " + "\n" +
+                        "Time: " + getTime() + " " + "\n" + "\n";
+                writeLog(writeInLog);
+            }
+            else{
+                System.out.println("No Record.");
+                return false;
             }
 
         }
@@ -316,5 +418,13 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
     @Override
     public String getRecordCounts() throws RemoteException {
         return null;
+    }
+
+    public  String getTime(){
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        String time = date.toString();
+        return time;
     }
 }

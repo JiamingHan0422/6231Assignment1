@@ -27,16 +27,26 @@ public class RMIClient2 {
             Manager manager = new Manager();
             manager.setManagerID(ManagerID);
 
+            rmiCenterServer r_Interface = null;
+            if(ManagerID.startsWith("MTL")){
 
-            // 如果RMI Registry就在本地机器上，URL就是:rmi://localhost:1099/hello
-            // 否则，URL就是：rmi://RMIService_IP:1099/hello
-            Registry registry = LocateRegistry.getRegistry("localhost");
-            rmiCenterServer r_Interface = (rmiCenterServer) Naming.lookup("rmi://localhost:6231/r_Interface");
-            // 从Registry中检索远程对象的存根/代理
-            //System.out.println(r_Interface.getRecordCounts());
-            // 调用远程对象的方法
-            //double addResult = r_Interface.add(5.0, 3.0);
-            //System.out.println("5.0 + 3.0 = " + addResult);
+                Registry registry = LocateRegistry.getRegistry("localhost");
+                r_Interface = (rmiCenterServer) Naming.lookup("rmi://localhost:6231/r_Interface");
+
+            }
+            else if(ManagerID.startsWith("LVL")){
+
+                Registry registry = LocateRegistry.getRegistry("localhost");
+                r_Interface = (rmiCenterServer) Naming.lookup("rmi://localhost:6232/r_Interface");
+
+            }
+            else if(ManagerID.startsWith("DDO")){
+
+                Registry registry = LocateRegistry.getRegistry("localhost");
+                r_Interface = (rmiCenterServer) Naming.lookup("rmi://localhost:6233/r_Interface");
+
+            }
+
             do{
 
 
