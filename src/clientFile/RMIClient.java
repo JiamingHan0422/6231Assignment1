@@ -50,14 +50,15 @@ public class RMIClient {
                         "1.Create Teacher Record. " + "\n" +
                         "2.Create Student Record."  + "\n" +
                         "3.Get Record Counts." + "\n" +
-                        "4. Edit Record");
+                        "4. Edit Record." + "\n" +
+                        "5. Print Record.");
                 ManagerInput = ManagerScanner.nextInt();
 
                 switch(ManagerInput){
 
                     case 1:
                         System.out.println("Please Create Teacher Record.");
-                        System.out.println("Enter: firstName lastName address phone specialization location(mtl,lvl,ddo) ");
+                        System.out.println("Enter: firstName, lastName, address, phone, specialization, location(mtl,lvl,ddo) ");
                         String firstName = ManagerScanner.next();
                         String lastName = ManagerScanner.next();
                         String address = ManagerScanner.next();
@@ -72,6 +73,38 @@ public class RMIClient {
                         else{
                             System.out.println("access deny.");
                         }
+                        break;
+
+                    case 2:
+                        System.out.println("Please Create Student Record.");
+                        System.out.println("Enter: firstName, lastName, CoursesRegister, Status, StatusDate");
+                        firstName = ManagerScanner.next();
+                        lastName = ManagerScanner.next();
+                        String CoursesRegister = ManagerScanner.next();
+                        String Status = ManagerScanner.next();
+                        String StatusDate = ManagerScanner.next();
+
+                        result = r_Interface.createSRecord(ManagerID, firstName, lastName, CoursesRegister, Status, StatusDate);
+                        if (result){
+                            System.out.println("success!");
+                        }
+                        else{
+                            System.out.println("access deny.");
+                        }
+                        break;
+                    case 3:
+
+                    case 4:
+
+                    case 5:
+                        result = r_Interface.printRecord(ManagerID);
+                        if (result){
+                            System.out.println("success!");
+                        }
+                        else{
+                            System.out.println("access deny.");
+                        }
+                        break;
                 }
 
             }while(true);

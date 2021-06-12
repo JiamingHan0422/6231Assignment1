@@ -2,6 +2,7 @@ package ServerFile;
 
 import java.io.File;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 public interface rmiInterface extends Remote {
     /**
@@ -15,9 +16,12 @@ public interface rmiInterface extends Remote {
                                   String Phone, String Specialization, String Location)throws java.rmi.RemoteException;
 
     public boolean createSRecord (String managerID, String firstName, String lastName, String CoursesRegistered,
-                                  String multiple, String Status, String StatusDate)throws java.rmi.RemoteException;
+                                  String Status, String StatusDate)throws java.rmi.RemoteException;
 
-    public void editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;
+    public boolean editRecord (String recordID, File fieldName, String newValue) throws java.rmi.RemoteException;
 
-    public int getRecordCounts() throws java.rmi.RemoteException;
+    public boolean printRecord (String ManagerID) throws java.rmi.RemoteException;
+
+
+    public String getRecordCounts() throws java.rmi.RemoteException;
 }

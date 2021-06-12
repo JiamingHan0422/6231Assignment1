@@ -6,7 +6,7 @@ public class CernterServer {
     String S_FirstName,S_LastName, CoursesRegistered, multiple, Status, StatusDate;
 
     TeacherRecord TRecord = new TeacherRecord(T_FirstName,T_LastName, Address, Phone, Specialization, Location);
-    StudentRecord SRecord = new StudentRecord(S_FirstName,S_LastName, CoursesRegistered, multiple, Status, StatusDate);
+    StudentRecord SRecord = new StudentRecord(S_FirstName,S_LastName, CoursesRegistered, Status, StatusDate);
 
     public CernterServer(){
 

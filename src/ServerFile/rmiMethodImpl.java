@@ -20,19 +20,20 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     HashMap<Character, ArrayList<Record>> HashMapMTL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapLVL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapDDO = new HashMap<Character, ArrayList<Record>>();
-    int count =0;
+
 
     protected rmiMethodImpl() throws RemoteException {
+
         super();
     }
 
     @Override
     public boolean createTRecord(String managerID, String firstName, String lastName, String Address, String Phone, String Specialization, String Location) throws RemoteException {
 
-        System.out.println(managerID);
-        System.out.println(firstName);
-        System.out.println(lastName);
-
+        if(!(Location.equals("MTL")||Location.equals("LVL")||Location.equals("DDO"))){
+            System.out.println("The location is invalid.");
+            return false;
+        }
         TeacherRecord NewTRecord = new TeacherRecord(firstName, lastName, Address, Phone, Specialization, Location);
         ArrayList<Record> Recordlist = new ArrayList<>();
 
@@ -45,11 +46,6 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
                 Recordlist.add(NewTRecord);
                 HashMapMTL.replace(Mark, Recordlist);
 
-                /**
-                for(int i = 0; i < HashMapMTL.get(Mark).size(); i++) {
-                    System.out.println(HashMapMTL.get(Mark).get(i).firstName + "\n");
-                }
-                 **/
             }
             else{
                 Recordlist.add(NewTRecord);
@@ -95,12 +91,10 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     }
 
     @Override
-    public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String multiple, String Status, String StatusDate) throws RemoteException {
-        System.out.println(managerID);
-        System.out.println(firstName);
-        System.out.println(lastName);
+    public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String Status, String StatusDate) throws RemoteException {
 
-        StudentRecord NewSRecord = new StudentRecord(firstName, lastName, CoursesRegistered, multiple, Status, StatusDate);
+
+        StudentRecord NewSRecord = new StudentRecord(firstName, lastName, CoursesRegistered, Status, StatusDate);
         ArrayList<Record> Recordlist = new ArrayList<>();
 
         if(managerID.startsWith("MTL")){
@@ -156,13 +150,61 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiInterface {
     }
 
     @Override
-    public void editRecord(String recordID, File fieldName, String newValue) throws RemoteException {
-
+    public boolean editRecord(String recordID, File fieldName, String newValue) throws RemoteException {
+        return true;
     }
 
     @Override
-    public int getRecordCounts() throws RemoteException {
-        //三个在服务器中每调用一次logEntryBuffer, 则 count ++
-        return count;
+    public boolean printRecord(String ManagerID) throws RemoteException {
+
+        ArrayList<Record> Recordlist = new ArrayList<>();
+        if(ManagerID.startsWith("MTL")){
+
+            for(char key: HashMapMTL.keySet()) {
+
+                // 输出每个 key
+                System.out.print(key + ", ");
+                Recordlist = HashMapMTL.get(key);
+                for (int i = 0; i < Recordlist.size(); i++) {
+                    System.out.print(Recordlist.get(i).getName() + " ");
+                }
+                System.out.println("\n");
+            }
+
+        }
+        else if(ManagerID.startsWith("LVL")){
+
+            for(char key: HashMapLVL.keySet()) {
+
+                // 输出每个 key
+                System.out.print(key + ", ");
+                Recordlist = HashMapLVL.get(key);
+                for (int i = 0; i < Recordlist.size(); i++) {
+                    System.out.print(Recordlist.get(i).getName() + " ");
+                }
+                System.out.println("\n");
+            }
+        }
+        else if(ManagerID.startsWith("DDO")){
+
+            for(char key: HashMapDDO.keySet()) {
+
+                // 输出每个 key
+                System.out.print(key + ", ");
+                Recordlist = HashMapDDO.get(key);
+                for (int i = 0; i < Recordlist.size(); i++) {
+                    System.out.print(Recordlist.get(i).getName() + " ");
+                }
+                System.out.println("\n");
+            }
+
+        }
+
+        return true;
+    }
+
+    @Override
+    public String getRecordCounts() throws RemoteException {
+        return null;
     }
 }
