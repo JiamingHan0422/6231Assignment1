@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
-public class RMIServer {
+public class RMIServerMTL {
     public static void main(String[] args){
         try{
 
@@ -13,7 +13,7 @@ public class RMIServer {
             // 但是,将远程对象注册到RMI Registry之后,
             // 客户端就可以通过RMI Registry请求到该远程服务对象的stub，
             // 利用stub代理就可以访问远程服务对象了。
-            rmiInterface r_Interface = new rmiMethodImpl();
+            rmiCenterServer r_Interface = new rmiMethodMTL();
             LocateRegistry.createRegistry(6231);
             java.rmi.Naming.rebind("rmi://localhost:6231/r_Interface", r_Interface);
             System.out.print("Server Ready! " + "\n");

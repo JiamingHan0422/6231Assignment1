@@ -15,14 +15,14 @@ import java.util.HashMap;
  * 服务器端实现远程接口。
  * 必须继承UnicastRemoteObject，以允许JVM创建远程的存根/代理。
  */
-public class rmiMethodImpl extends UnicastRemoteObject implements rmiCenterServer {
+public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer {
 
     HashMap<Character, ArrayList<Record>> HashMapMTL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapLVL = new HashMap<Character, ArrayList<Record>>();
     HashMap<Character, ArrayList<Record>> HashMapDDO = new HashMap<Character, ArrayList<Record>>();
 
 
-    protected rmiMethodImpl() throws RemoteException {
+    protected rmiMethodDDO() throws RemoteException {
 
         super();
     }
@@ -276,7 +276,7 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiCenterServe
                 System.out.print("\n" + key + ", ");
                 Recordlist = HashMapMTL.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
-                    System.out.print("ID:" + Recordlist.get(i).getID() + "Name" + Recordlist.get(i).getName() + " ");
+                    System.out.print("{ID:" + Recordlist.get(i).getID() + " Name: " + Recordlist.get(i).getName() + "} ");
                 }
                 System.out.println("\n");
             }
@@ -290,7 +290,7 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiCenterServe
                 System.out.print("\n" + key + ", ");
                 Recordlist = HashMapLVL.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
-                    System.out.print("ID:" + Recordlist.get(i).getID() + " Name:" + Recordlist.get(i).getName() + " ");
+                    System.out.print("{ID:" + Recordlist.get(i).getID() + " Name: " + Recordlist.get(i).getName() + "} ");
                 }
                 System.out.println("\n");
             }
@@ -303,7 +303,7 @@ public class rmiMethodImpl extends UnicastRemoteObject implements rmiCenterServe
                 System.out.print("\n" + key + ", ");
                 Recordlist = HashMapDDO.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
-                    System.out.print("ID:" + Recordlist.get(i).getID() + "Name" + Recordlist.get(i).getName() + " ");
+                    System.out.print("{ID:" + Recordlist.get(i).getID() + " Name: " + Recordlist.get(i).getName() + "} ");
                 }
                 System.out.println("\n");
             }

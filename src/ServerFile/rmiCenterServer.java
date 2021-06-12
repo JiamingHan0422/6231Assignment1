@@ -4,7 +4,7 @@ import java.io.File;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface rmiInterface extends Remote {
+public interface rmiCenterServer extends Remote {
     /**
  * 远程接口方法必须抛出 java.rmi.RemoteException
      * @return

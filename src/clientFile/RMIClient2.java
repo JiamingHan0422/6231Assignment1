@@ -1,6 +1,6 @@
 package clientFile;
 
-import ServerFile.rmiInterface;
+import ServerFile.rmiCenterServer;
 import managerFile.Manager;
 
 import java.net.MalformedURLException;
@@ -9,20 +9,11 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
-public class RMIClient {
-
-    /**
-     * Check manager's validation
-     * @return
-     */
-    int ManagerValid(){return 0;}
-
-    /**
-     * main method
-     */
-    void init() { }
+public class RMIClient2 {
 
 
     public static void main(String[] args){
@@ -36,10 +27,11 @@ public class RMIClient {
             Manager manager = new Manager();
             manager.setManagerID(ManagerID);
 
+
             // 如果RMI Registry就在本地机器上，URL就是:rmi://localhost:1099/hello
             // 否则，URL就是：rmi://RMIService_IP:1099/hello
             Registry registry = LocateRegistry.getRegistry("localhost");
-            rmiInterface r_Interface = (rmiInterface) Naming.lookup("rmi://localhost:6231/r_Interface");
+            rmiCenterServer r_Interface = (rmiCenterServer) Naming.lookup("rmi://localhost:6231/r_Interface");
             // 从Registry中检索远程对象的存根/代理
             //System.out.println(r_Interface.getRecordCounts());
             // 调用远程对象的方法
@@ -68,11 +60,25 @@ public class RMIClient {
                         String address = ManagerScanner.next();
                         String phone = ManagerScanner.next();
                         String specialization = ManagerScanner.next();
-                        String location = ManagerScanner.next();
 
+                        String location = ManagerScanner.next();
+                        while(!(location.equals("mtl")||location.equals("lvl")||location.equals("ddo"))){
+                            System.out.println("Location is invalid, please try again.(mtl,lvl,ddo)\n");
+                            location = ManagerScanner.next();
+                        }
                         boolean result = r_Interface.createTRecord(ManagerID, firstName, lastName, address, phone, specialization, location );
                         if (result){
                             System.out.println("success!");
+
+                            String writeInLog = "Create Teacher Record." + "\n" +
+                                    "Name: " + firstName + " " + lastName + "\n" +
+                                    "Address: " + address + " " + "\n" +
+                                    "Phone: " + phone + " " + "\n" +
+                                    "Specialization: " + specialization + " " + "\n" +
+                                    "Location: " + location + " " + "\n" +
+                                    "Time: " + getTime() + " " + "\n" + "\n";
+
+                            manager.writeLog(writeInLog);
                         }
                         else{
                             System.out.println("access deny.");
@@ -86,11 +92,25 @@ public class RMIClient {
                         lastName = ManagerScanner.next();
                         String CoursesRegister = ManagerScanner.next();
                         String Status = ManagerScanner.next();
+                        while(!(Status.equals("active")||Status.equals("inactive"))){
+                            System.out.println("Status is invalid, please try again.(active/inactive)\n");
+                            Status = ManagerScanner.next();
+                        }
                         String StatusDate = ManagerScanner.next();
 
                         result = r_Interface.createSRecord(ManagerID, firstName, lastName, CoursesRegister, Status, StatusDate);
                         if (result){
                             System.out.println("success!");
+
+                            String writeInLog = "Create Student Record." + "\n" +
+                                    "Name: " + firstName + " " + lastName + "\n" +
+                                    "CoursesRegister: " + CoursesRegister + " " + "\n" +
+                                    "Status: " + Status + " " + "\n" +
+                                    "StatusDate: " + StatusDate + " " + "\n" +
+                                    "Time: " + getTime() + " " + "\n" + "\n";
+
+                            manager.writeLog(writeInLog);
+
                         }
                         else{
                             System.out.println("access deny.");
@@ -116,6 +136,14 @@ public class RMIClient {
                         result = r_Interface.editRecord(ManagerID, RecordID, fieldName, newValue);
                         if (result){
                             System.out.println("success!");
+                            String writeInLog = "Edit Record." + "\n" +
+                                    "RecordID: " + RecordID + "\n" +
+                                    "fieldName: " + fieldName + " " + "\n" +
+                                    "newValue: " + newValue + " " + "\n" +
+                                    "Time: " + getTime() + " " + "\n" + "\n";
+
+                            manager.writeLog(writeInLog);
+
                         }
                         else{
                             System.out.println("access deny.");
@@ -125,6 +153,7 @@ public class RMIClient {
                         result = r_Interface.printRecord(ManagerID);
                         if (result){
                             System.out.println("success!");
+
                         }
                         else{
                             System.out.println("access deny.");
@@ -143,5 +172,13 @@ public class RMIClient {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getTime(){
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        String time = date.toString();
+        return time;
     }
 }
