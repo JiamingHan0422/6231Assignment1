@@ -32,7 +32,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
     String FilePath = loggingFile.getAbsolutePath();
     int DDOcount = 0;
 
-    protected rmiMethodDDO() throws RemoteException {
+    public rmiMethodDDO() throws RemoteException {
 
         super();
 
