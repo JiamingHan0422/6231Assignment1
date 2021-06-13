@@ -1,7 +1,7 @@
 package ServerFile;
 
 import java.io.*;
-import java.net.MalformedURLException;
+import java.net.*;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class RMIServerLVL {
     public static void main(String[] args){
+        DatagramSocket server = null;
         try{
 
             // 注册远程对象,向客户端提供远程对象服务。
@@ -50,35 +51,37 @@ public class RMIServerLVL {
             // 如果不想再让该对象被继续调用，使用下面一行
             // UnicastRemoteObject.unexportObject(remoteMath, false);
 
-            Scanner stopScanner = new Scanner(System.in);
-            System.out.println("If you want to stop, please enter: exit .");
-            String input = stopScanner.nextLine();
-            while(true){
+            try {
+                server = new DatagramSocket(5052);
+                byte[] recvBuf = new byte[1000];
 
-                if(input.equals("exit")){
-                    UnicastRemoteObject.unexportObject(r_Interface, false);
 
-                    try {
-                        FileOutputStream l_saveFile= null;
-                        l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "LVLFile" + "/" + "LVLServer" +".txt");
-                        ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
-                        l_Save.writeObject(r_Interface);
-                        l_Save.flush();
-                        l_Save.close();
+                while (true) {
+                    DatagramPacket recvPacket = new DatagramPacket(recvBuf, recvBuf.length);
+                    server.receive(recvPacket);
+                    String recvStr = new String(recvPacket.getData(), 0, recvPacket.getLength());
+                    System.out.println("Hello World!" + recvStr);
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    //根据获得的端口和IP地址的发送过程
+                    int port = recvPacket.getPort();
+                    InetAddress addr = recvPacket.getAddress();
+                    String sendStr = r_Interface.getRecordCounts();
+                    byte[] sendBuf = sendStr.getBytes();
+                    DatagramPacket sendPacket = new DatagramPacket(sendBuf, sendBuf.length, addr, port);
+                    server.send(sendPacket);
 
-                    System.out.println("write object success!");
-                    break;
                 }
-                System.out.println("If you want to stop, please enter: exit.");
-                input = stopScanner.nextLine();
+
+            } catch (SocketException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         } catch (RemoteException | MalformedURLException e) {
             e.printStackTrace();
         }
+        server.close();
     }
 }
+

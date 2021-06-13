@@ -3,7 +3,11 @@ package clientFile;
 import ServerFile.rmiCenterServer;
 import managerFile.Manager;
 
-import java.net.MalformedURLException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -126,7 +130,15 @@ public class RMIClient1 {
                             System.out.println("access deny.");
                         }
                         break;
+
+
                     case 3:
+
+                        getCount("DDO");
+                        getCount("LVL");
+                        getCount("MTL");
+
+                        break;
 
                     case 4:
                         System.out.println("------------------------------------------------------");
@@ -159,6 +171,7 @@ public class RMIClient1 {
                             System.out.println("access deny.");
                         }
                         break;
+
                     case 5:
                         result = r_Interface.printRecord(ManagerID);
                         if (result){
@@ -168,6 +181,8 @@ public class RMIClient1 {
                         else{
                             System.out.println("access deny.");
                         }
+                        break;
+                    default:
                         break;
                 }
 
@@ -190,5 +205,42 @@ public class RMIClient1 {
         Date date = new Date();
         String time = date.toString();
         return time;
+    }
+
+    public static String getCount(String location) {
+        int port = 0;
+        if (location.equals("DDO")) {
+            port = 5051;
+        } else if (location.equals("LVL")) {
+            port = 5052;
+        } else if (location.equals("MTL")) {
+            port = 5053;
+        }
+
+        String recvStr = null;
+        try {
+            DatagramSocket client = new DatagramSocket();
+            // 发送过程
+            String sendStr = "I'm Client";
+            byte[] sendBuf = sendStr.getBytes();
+            InetAddress addr = InetAddress.getByName("127.0.0.1");
+
+            DatagramPacket sendPacketDDO = new DatagramPacket(sendBuf, sendBuf.length, addr, port);
+            client.send(sendPacketDDO);
+
+            // 接收过程
+            byte[] recvBuf = new byte[1000];
+            DatagramPacket recvPacket = new DatagramPacket(recvBuf, recvBuf.length);
+            client.receive(recvPacket);
+            recvStr = new String(recvPacket.getData(), 0, recvPacket.getLength());
+            System.out.println(recvStr);
+            client.close();
+
+        } catch (SocketException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return recvStr;
     }
 }

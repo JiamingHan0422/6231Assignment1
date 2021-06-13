@@ -1,27 +1,29 @@
 package ServerFile;
 
 import java.io.*;
-import java.net.MalformedURLException;
+import java.net.*;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
 public class RMIServerMTL {
-    public static void main(String[] args){
-        try{
+    public static void main(String[] args) {
+        DatagramSocket server = null;
+        rmiCenterServer r_Interface = null;
+        try {
 
             // 注册远程对象,向客户端提供远程对象服务。
             // 远程对象是在远程服务上创建的，你无法确切地知道远程服务器上的对象的名称，
             // 但是,将远程对象注册到RMI Registry之后,
             // 客户端就可以通过RMI Registry请求到该远程服务对象的stub，
             // 利用stub代理就可以访问远程服务对象了。
-            rmiCenterServer r_Interface = new rmiMethodMTL();
+            r_Interface = new rmiMethodMTL();
 
             File MTLFile = new File("");
             String FilePath = MTLFile.getAbsolutePath();
-            MTLFile = new File(FilePath + "/" + "LogFile" + "/" + "MTLFile"+ "/" + "MTLServer" +".txt");
-            if(!MTLFile.exists()){
+            MTLFile = new File(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt");
+            if (!MTLFile.exists()) {
                 try {
                     MTLFile.createNewFile();
                 } catch (IOException e) {
@@ -31,11 +33,11 @@ public class RMIServerMTL {
 
             try {
 
-                ObjectInputStream l_ois= null;
-                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile"+ "/" + "MTLServer" +".txt"));
+                ObjectInputStream l_ois = null;
+                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt"));
 
                 try {
-                    r_Interface=(rmiCenterServer)l_ois.readObject();
+                    r_Interface = (rmiCenterServer) l_ois.readObject();
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -50,35 +52,38 @@ public class RMIServerMTL {
             // 如果不想再让该对象被继续调用，使用下面一行
             // UnicastRemoteObject.unexportObject(remoteMath, false);
 
-            Scanner stopScanner = new Scanner(System.in);
-            System.out.println("If you want to stop, please enter: exit .");
-            String input = stopScanner.nextLine();
-            while(true){
+            try {
+                server = new DatagramSocket(5053);
+                byte[] recvBuf = new byte[1000];
 
-                if(input.equals("exit")){
-                    UnicastRemoteObject.unexportObject(r_Interface, false);
 
-                    try {
-                        FileOutputStream l_saveFile= null;
-                        l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" +".txt");
-                        ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
-                        l_Save.writeObject(r_Interface);
-                        l_Save.flush();
-                        l_Save.close();
+                while (true) {
+                    DatagramPacket recvPacket = new DatagramPacket(recvBuf, recvBuf.length);
+                    server.receive(recvPacket);
+                    String recvStr = new String(recvPacket.getData(), 0, recvPacket.getLength());
+                    System.out.println("Hello World!" + recvStr);
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    //根据获得的端口和IP地址的发送过程
+                    int port = recvPacket.getPort();
+                    InetAddress addr = recvPacket.getAddress();
+                    String sendStr = r_Interface.getRecordCounts();
+                    byte[] sendBuf = sendStr.getBytes();
+                    DatagramPacket sendPacket = new DatagramPacket(sendBuf, sendBuf.length, addr, port);
+                    server.send(sendPacket);
 
-                    System.out.println("write object success!");
-                    break;
+
                 }
-                System.out.println("If you want to stop, please enter: exit.");
-                input = stopScanner.nextLine();
+
+            } catch (SocketException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         } catch (RemoteException | MalformedURLException e) {
             e.printStackTrace();
         }
+        //UnicastRemoteObject.unexportObject(r_Interface, false);
+        server.close();
     }
 }

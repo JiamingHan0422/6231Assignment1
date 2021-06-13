@@ -5,10 +5,7 @@ import recordFile.Record;
 import recordFile.StudentRecord;
 import recordFile.TeacherRecord;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.text.SimpleDateFormat;
@@ -146,6 +143,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                 "Location: " + Location + " " + "\n" +
                 "Time: " + getTime() + " " + "\n" + "\n";
         writeLog(writeInLog);
+        save();
 
         return true;
     }
@@ -220,6 +218,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                 "StatusDate: " + StatusDate + " " + "\n" +
                 "Time: " + getTime() + " " + "\n" + "\n";
         this.writeLog(writeInLog);
+        save();
 
         return true;
 
@@ -268,6 +267,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                         "newValue: " + newValue + " " + "\n" +
                         "Time: " + getTime() + " " + "\n" + "\n";
                 writeLog(writeInLog);
+                save();
             }
             else{
                 System.out.println("No Record.");
@@ -312,6 +312,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                         "newValue: " + newValue + " " + "\n" +
                         "Time: " + getTime() + " " + "\n" + "\n";
                 writeLog(writeInLog);
+                save();
             }
             else{
                 System.out.println("No Record.");
@@ -359,6 +360,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
                         "newValue: " + newValue + " " + "\n" +
                         "Time: " + getTime() + " " + "\n" + "\n";
                 writeLog(writeInLog);
+                save();
             }
             else{
                 System.out.println("No Record.");
@@ -421,7 +423,8 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
     @Override
     public String getRecordCounts() throws RemoteException {
-        return null;
+        String sendStr = "MTL " + String.valueOf(MTLcount);
+        return sendStr;
     }
 
     public  String getTime(){
@@ -430,5 +433,20 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         Date date = new Date();
         String time = date.toString();
         return time;
+    }
+
+    public void save(){
+        try {
+            FileOutputStream l_saveFile = null;
+            l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt");
+            ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
+            l_Save.writeObject(this);
+            l_Save.flush();
+            l_Save.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("write object success!");
     }
 }

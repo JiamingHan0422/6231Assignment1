@@ -1,10 +1,6 @@
 package ServerFile;
 
-import java.io.File;
 import java.rmi.Remote;
-import java.rmi.RemoteException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public interface rmiCenterServer extends Remote {
     /**
