@@ -11,11 +11,14 @@ public class StudentRecord extends Record{
                           String Status, String StatusDate){
 
         super(firstName, lastName);
-        this.recordID="SR"+String.valueOf(++idCounter);
+        this.recordID="SR"+String.valueOf(idCounter);
         this.CoursesRegistered = CoursesRegistered;
         this.Status = Status;
         this.StatusDate = StatusDate;
 
+    }
+    public void setRecordID(int counter){
+        this.recordID="SR"+String.valueOf(idCounter + counter);
     }
 
     public String getCoursesRegistered() {
@@ -32,7 +35,7 @@ public class StudentRecord extends Record{
 
     public boolean changeValue(String fieldName, String newValue){
 
-        if(fieldName.equalsIgnoreCase("Status")){
+        if(fieldName.equalsIgnoreCase("status")){
             if(newValue.equals("active")||newValue.equals("inactive")){
 
                 System.out.println("Old value:" + this.Status);
@@ -44,13 +47,13 @@ public class StudentRecord extends Record{
                 System.out.println("The Status is invalid.(active/inactive)");
                 return false;
         }
-        else if(fieldName.equalsIgnoreCase("CoursesRegistered")){
+        else if(fieldName.equalsIgnoreCase("coursesregistered")){
             System.out.println("Old value:" + this.CoursesRegistered);
             this.CoursesRegistered=newValue;
             System.out.println("New value:" + this.CoursesRegistered);
             return true;
         }
-        else if(fieldName.equalsIgnoreCase("StatusDate")){
+        else if(fieldName.equalsIgnoreCase("statusdate")){
             System.out.println("Old value:" + this.CoursesRegistered);
             this.StatusDate=newValue;
             System.out.println("New value:" + this.CoursesRegistered);

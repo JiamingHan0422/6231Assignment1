@@ -29,7 +29,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
     File loggingFile = new File("");
     String FilePath = loggingFile.getAbsolutePath();
-
+    int MTLcount = 0;
 
 
     protected rmiMethodMTL() throws RemoteException {
@@ -82,6 +82,8 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             return false;
         }
         TeacherRecord NewTRecord = new TeacherRecord(firstName, lastName, Address, Phone, Specialization, Location);
+        MTLcount++;
+        NewTRecord.setRecordID(MTLcount);
         ArrayList<Record> Recordlist = new ArrayList<>();
 
 
@@ -156,6 +158,8 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             return false;
         }
         StudentRecord NewSRecord = new StudentRecord(firstName, lastName, CoursesRegistered, Status, StatusDate);
+        MTLcount++;
+        NewSRecord.setRecordID(MTLcount);
         ArrayList<Record> Recordlist = new ArrayList<>();
 
         if(managerID.startsWith("MTL")){
@@ -273,7 +277,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
 
         else if(managerID.startsWith("LVL")){
-            allRecord = HashMapMTL.values();
+            allRecord = HashMapLVL.values();
 
             for(ArrayList<Record> recordList : allRecord){
                 for(Record record : recordList){
@@ -320,7 +324,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
         else if (managerID.startsWith("DDO")){
 
-            allRecord = HashMapMTL.values();
+            allRecord = HashMapDDO.values();
 
             for(ArrayList<Record> recordList : allRecord){
                 for(Record record : recordList){
