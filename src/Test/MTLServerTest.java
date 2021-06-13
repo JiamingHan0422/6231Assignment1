@@ -1,6 +1,7 @@
 package Test;
 
 import ServerFile.rmiMethodDDO;
+import ServerFile.rmiMethodMTL;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,9 +15,9 @@ import java.rmi.RemoteException;
 
 public class MTLServerTest {
 
-    rmiMethodDDO rmiMethodDDO;
-    File DDOFile = new File("");
-    String FilePath = DDOFile.getAbsolutePath();
+    ServerFile.rmiMethodMTL rmiMethodMTL;
+    File MTLFile = new File("");
+    String FilePath = MTLFile.getAbsolutePath();
 
     /**
      * Loading the database in DDO.
@@ -24,9 +25,9 @@ public class MTLServerTest {
     @Before
     public void before(){
         try {
-            rmiMethodDDO = new rmiMethodDDO();
-            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt"));
-            rmiMethodDDO = (ServerFile.rmiMethodDDO) l_ois.readObject();
+            rmiMethodMTL = new rmiMethodMTL();
+            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt"));
+            rmiMethodMTL = (ServerFile.rmiMethodMTL) l_ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -51,13 +52,13 @@ public class MTLServerTest {
     public void DDOServerTrecordTest(){
         boolean result;
         try {
-            result = rmiMethodDDO.createTRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodMTL.createTRecord(
+                    "MTL11111","firstName", "lastName",
                     "Address", "Phone", "Specialization", "mtl");
             Assert.assertEquals(result, true);
 
-            result = rmiMethodDDO.createTRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodMTL.createTRecord(
+                    "MTL11111","firstName", "lastName",
                     "Address", "Phone", "Specialization", "XXX");
             Assert.assertEquals(result, false);
 
@@ -73,13 +74,13 @@ public class MTLServerTest {
     public void DDOServerSrecordTest(){
         boolean result;
         try {
-            result = rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodMTL.createSRecord(
+                    "MTL11111","firstName", "lastName",
                     "CoursesRegistered", "active", "StatusDate");
             Assert.assertEquals(result, true);
 
-            result = rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodMTL.createSRecord(
+                    "MTL11111","firstName", "lastName",
                     "CoursesRegistered", "XXX", "StatusDate");
             Assert.assertEquals(result, false);
 
@@ -95,11 +96,11 @@ public class MTLServerTest {
     public void DDOServerEditrecordTest(){
         boolean result;
         try {
-            rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            rmiMethodMTL.createSRecord(
+                    "MTL11111","firstName", "lastName",
                     "CoursesRegistered", "active", "StatusDate");
-            rmiMethodDDO.printRecord("DDO11111");
-            result = rmiMethodDDO.editRecord("DDO11111", "SR10001","status","inactive");
+            rmiMethodMTL.printRecord("MTL11111");
+            result = rmiMethodMTL.editRecord("MTL11111", "SR10001","status","inactive");
             Assert.assertEquals(result, true);
 
 
@@ -115,12 +116,12 @@ public class MTLServerTest {
     public void DDOServerGetCountTest(){
         String result;
         try {
-            rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            rmiMethodMTL.createSRecord(
+                    "MTL11111","firstName", "lastName",
                     "CoursesRegistered", "active", "StatusDate");
-            rmiMethodDDO.printRecord("DDO11111");
+            rmiMethodMTL.printRecord("MTL11111");
 
-            result = rmiMethodDDO.getRecordCounts();
+            result = rmiMethodMTL.getRecordCounts();
             System.out.println(result);
 
 

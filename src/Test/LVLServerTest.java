@@ -1,6 +1,7 @@
 package Test;
 
 import ServerFile.rmiMethodDDO;
+import ServerFile.rmiMethodLVL;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,9 +15,9 @@ import java.rmi.RemoteException;
 
 public class LVLServerTest {
 
-    rmiMethodDDO rmiMethodDDO;
-    File DDOFile = new File("");
-    String FilePath = DDOFile.getAbsolutePath();
+    ServerFile.rmiMethodLVL rmiMethodLVL;
+    File LVLFile = new File("");
+    String FilePath = LVLFile.getAbsolutePath();
 
     /**
      * Loading the database in DDO.
@@ -24,9 +25,9 @@ public class LVLServerTest {
     @Before
     public void before(){
         try {
-            rmiMethodDDO = new rmiMethodDDO();
-            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt"));
-            rmiMethodDDO = (ServerFile.rmiMethodDDO) l_ois.readObject();
+            rmiMethodLVL = new rmiMethodLVL();
+            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "LVLFile" + "/" + "LVLServer" + ".txt"));
+            rmiMethodLVL = (ServerFile.rmiMethodLVL) l_ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -48,16 +49,16 @@ public class LVLServerTest {
      * Test for creating the teacher record.
      */
     @Test
-    public void DDOServerTrecordTest(){
+    public void LVLServerTrecordTest(){
         boolean result;
         try {
-            result = rmiMethodDDO.createTRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodLVL.createTRecord(
+                    "LVL11111","firstName", "lastName",
                     "Address", "Phone", "Specialization", "mtl");
             Assert.assertEquals(result, true);
 
-            result = rmiMethodDDO.createTRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodLVL.createTRecord(
+                    "LVL11111","firstName", "lastName",
                     "Address", "Phone", "Specialization", "XXX");
             Assert.assertEquals(result, false);
 
@@ -70,16 +71,16 @@ public class LVLServerTest {
      * Test for creating the student record.
      */
     @Test
-    public void DDOServerSrecordTest(){
+    public void LVLServerSrecordTest(){
         boolean result;
         try {
-            result = rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodLVL.createSRecord(
+                    "LVL11111","firstName", "lastName",
                     "CoursesRegistered", "active", "StatusDate");
             Assert.assertEquals(result, true);
 
-            result = rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            result = rmiMethodLVL.createSRecord(
+                    "LVL11111","firstName", "lastName",
                     "CoursesRegistered", "XXX", "StatusDate");
             Assert.assertEquals(result, false);
 
@@ -92,14 +93,14 @@ public class LVLServerTest {
      * Test for editing record.
      */
     @Test
-    public void DDOServerEditrecordTest(){
+    public void LVLServerEditrecordTest(){
         boolean result;
         try {
-            rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            rmiMethodLVL.createSRecord(
+                    "LVL11111","firstName", "lastName",
                     "CoursesRegistered", "active", "StatusDate");
-            rmiMethodDDO.printRecord("DDO11111");
-            result = rmiMethodDDO.editRecord("DDO11111", "SR10001","status","inactive");
+            rmiMethodLVL.printRecord("LVL11111");
+            result = rmiMethodLVL.editRecord("LVL11111", "SR10001","status","inactive");
             Assert.assertEquals(result, true);
 
 
@@ -112,15 +113,15 @@ public class LVLServerTest {
      * Test for editing record.
      */
     @Test
-    public void DDOServerGetCountTest(){
+    public void LVLServerGetCountTest(){
         String result;
         try {
-            rmiMethodDDO.createSRecord(
-                    "DDO11111","firstName", "lastName",
+            rmiMethodLVL.createSRecord(
+                    "LVL11111","firstName", "lastName",
                     "CoursesRegistered", "active", "StatusDate");
-            rmiMethodDDO.printRecord("DDO11111");
+            rmiMethodLVL.printRecord("LVL11111");
 
-            result = rmiMethodDDO.getRecordCounts();
+            result = rmiMethodLVL.getRecordCounts();
             System.out.println(result);
 
 

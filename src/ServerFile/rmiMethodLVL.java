@@ -28,7 +28,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
     String FilePath = loggingFile.getAbsolutePath();
     int LVLcount = 0;
 
-    protected rmiMethodLVL() throws RemoteException {
+    public rmiMethodLVL() throws RemoteException {
 
         super();
         loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "LVLFile"+ "/" + "LVLLog" +".txt");
@@ -224,7 +224,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
     @Override
     public boolean editRecord(String managerID, String recordID, String fieldName, String newValue) throws RemoteException {
-
+        boolean result = false;
         Collection<ArrayList<Record>> allRecord = new ArrayList<>();
         int mark = 0;
         Record target = null;
@@ -248,13 +248,13 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
             if(target != null){
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
-                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        result = ((TeacherRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
                 else {
                     synchronized (target) {
-                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        result = ((StudentRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
@@ -269,7 +269,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
             }
             else{
                 System.out.println("No Record.");
-                return false;
+                result =  false;
             }
         }
 
@@ -293,13 +293,13 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
             if(target != null){
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
-                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        result = ((TeacherRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
                 else {
                     synchronized (target) {
-                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        result = ((StudentRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
@@ -314,7 +314,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
             }
             else{
                 System.out.println("No Record.");
-                return false;
+                result =  false;
             }
 
 
@@ -341,13 +341,13 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
             if(target != null){
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
-                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        result = ((TeacherRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
                 else {
                     synchronized (target) {
-                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        result = ((StudentRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
@@ -362,12 +362,12 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
             }
             else{
                 System.out.println("No Record.");
-                return false;
+                result =  false;
             }
 
         }
 
-        return true;
+        return result;
     }
 
     @Override

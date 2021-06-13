@@ -29,7 +29,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
     int MTLcount = 0;
 
 
-    protected rmiMethodMTL() throws RemoteException {
+    public rmiMethodMTL() throws RemoteException {
 
         super();
         loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "MTLFile"+ "/" + "MTLLog" +".txt");
@@ -85,14 +85,20 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
 
         if(managerID.startsWith("MTL")){
+
+            // Get the first letter.
             char Mark;
             Mark = firstName.charAt(0);
+
+            //Edit the record list.
             if(HashMapMTL.containsKey(Mark)){
                 Recordlist = HashMapMTL.get(Mark);
                 Recordlist.add(NewTRecord);
                 HashMapMTL.replace(Mark, Recordlist);
 
             }
+
+            //Create new record.
             else{
                 Recordlist.add(NewTRecord);
                 HashMapMTL.put(Mark, Recordlist);
@@ -229,6 +235,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
         Collection<ArrayList<Record>> allRecord = new ArrayList<>();
         int mark = 0;
+        boolean result = false;
         Record target = null;
         if(managerID.startsWith("MTL")){
 
@@ -250,13 +257,14 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             if(target != null){
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
-                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        result = ((TeacherRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
                 else {
                     synchronized (target) {
-                        ((StudentRecord) target).changeValue(fieldName, newValue);
+
+                        result = ((StudentRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
@@ -271,7 +279,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             }
             else{
                 System.out.println("No Record.");
-                return false;
+                result = false;
             }
         }
 
@@ -295,13 +303,13 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             if(target != null){
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
-                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        result = ((TeacherRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
                 else {
                     synchronized (target) {
-                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        result =  ((StudentRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
@@ -316,7 +324,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             }
             else{
                 System.out.println("No Record.");
-                return false;
+                result = false;
             }
 
 
@@ -343,13 +351,13 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             if(target != null){
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
-                        ((TeacherRecord) target).changeValue(fieldName, newValue);
+                        result = ((TeacherRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
                 else {
                     synchronized (target) {
-                        ((StudentRecord) target).changeValue(fieldName, newValue);
+                        result = ((StudentRecord) target).changeValue(fieldName, newValue);
                         System.out.println(target);
                     }
                 }
@@ -364,12 +372,12 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             }
             else{
                 System.out.println("No Record.");
-                return false;
+                result = false;
             }
 
         }
 
-        return true;
+        return result;
     }
 
     @Override
