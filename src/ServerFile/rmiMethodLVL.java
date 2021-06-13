@@ -28,9 +28,11 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
     String FilePath = loggingFile.getAbsolutePath();
     int LVLcount = 0;
 
+
     public rmiMethodLVL() throws RemoteException {
 
         super();
+        //Create the LVL log file.
         loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "LVLFile"+ "/" + "LVLLog" +".txt");
         if(!loggingFile.exists()){
             try {
@@ -41,7 +43,12 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
         }
     }
 
+    /**
+     * Write the information to the logfile.
+     * @param log the Operation details.
+     */
     public void writeLog(String log){
+        //Create, if no files.
         if(!this.loggingFile.exists()){
             try {
                 this.loggingFile.createNewFile();
@@ -54,6 +61,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
                 e.printStackTrace();
             }
         }
+        //Open the file.
         else{
             try {
                 synchronized (this.loggingFile) {
@@ -70,6 +78,18 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
     }
 
+    /**
+     * Create TeacherRecord.
+     * @param managerID managerID
+     * @param firstName firstName
+     * @param lastName lastName
+     * @param Address Address
+     * @param Phone Phone
+     * @param Specialization Specialization
+     * @param Location Location
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean createTRecord(String managerID, String firstName, String lastName, String Address, String Phone, String Specialization, String Location) throws RemoteException {
 
@@ -84,14 +104,18 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
 
         if(managerID.startsWith("MTL")){
+
+            //Get the first letter.
             char Mark;
             Mark = firstName.charAt(0);
+            //Put new record in the record list.
             if(HashMapMTL.containsKey(Mark)){
                 Recordlist = HashMapMTL.get(Mark);
                 Recordlist.add(NewTRecord);
                 HashMapMTL.replace(Mark, Recordlist);
 
             }
+            //Create new first letter key and the record list.
             else{
                 Recordlist.add(NewTRecord);
                 HashMapMTL.put(Mark, Recordlist);
@@ -147,6 +171,17 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
         return true;
     }
 
+    /**
+     * Create Student Record.
+     * @param managerID managerID
+     * @param firstName firstName
+     * @param lastName lastName
+     * @param CoursesRegistered CoursesRegistered
+     * @param Status Status
+     * @param StatusDate StatusDate
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String Status, String StatusDate) throws RemoteException {
 
@@ -232,6 +267,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
             allRecord = HashMapMTL.values();
 
+            //Select the target record by using recordID
             for(ArrayList<Record> recordList : allRecord){
                 for(Record record : recordList){
 
@@ -245,7 +281,9 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
                     break;
                 }
             }
+            //Find the record.
             if(target != null){
+
                 if(target instanceof TeacherRecord){
                     synchronized (target) {
                         result = ((TeacherRecord) target).changeValue(fieldName, newValue);
@@ -430,6 +468,9 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
         return time;
     }
 
+    /**
+     * Save the Server.
+     */
     public void save(){
         try {
             FileOutputStream l_saveFile = null;

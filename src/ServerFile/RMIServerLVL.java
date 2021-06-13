@@ -12,6 +12,7 @@ public class RMIServerLVL {
         DatagramSocket server = null;
         try{
 
+            //Load the LVL server.
             rmiCenterServer r_Interface = new rmiMethodLVL();
 
             File LVLFile = new File("");
@@ -41,6 +42,7 @@ public class RMIServerLVL {
                 System.out.println("The Map is Empty!");
             }
 
+            //Create the RMI connection.
             LocateRegistry.createRegistry(6232);
             java.rmi.Naming.rebind("rmi://localhost:6232/r_Interface", r_Interface);
             System.out.print("Server Ready! " + "\n");
@@ -50,6 +52,7 @@ public class RMIServerLVL {
                 byte[] recvBuf = new byte[1000];
 
 
+                //Create the UDP connection.
                 while (true) {
                     DatagramPacket recvPacket = new DatagramPacket(recvBuf, recvBuf.length);
                     server.receive(recvPacket);
@@ -58,6 +61,7 @@ public class RMIServerLVL {
 
                     int port = recvPacket.getPort();
                     InetAddress addr = recvPacket.getAddress();
+                    //Get the record count.
                     String sendStr = r_Interface.getRecordCounts();
                     byte[] sendBuf = sendStr.getBytes();
                     DatagramPacket sendPacket = new DatagramPacket(sendBuf, sendBuf.length, addr, port);
