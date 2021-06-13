@@ -168,3 +168,22 @@ Location: mtl
 Time: Mon Jun 14 06:18:19 CST 2021 
 
 
+ManagerID: MTL10001
+Create Teacher Record.
+Name: Yyy Yyy
+Address: yyy 
+Phone: yyy 
+Specialization: yyy 
+Location: mtl 
+Time: Mon Jun 14 07:42:06 CST 2021 
+
+
+ManagerID: MTL10001
+Create Student Record.
+Name: Yyy Yyy
+CoursesRegister: yyy 
+Status: active 
+StatusDate: qwe 
+Time: Mon Jun 14 07:42:40 CST 2021 
+
+

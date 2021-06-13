@@ -89,8 +89,10 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
 
 
         if(managerID.startsWith("MTL")){
+
             char Mark;
             Mark = firstName.charAt(0);
+
             if(HashMapMTL.containsKey(Mark)){
                 Recordlist = HashMapMTL.get(Mark);
                 Recordlist.add(NewTRecord);

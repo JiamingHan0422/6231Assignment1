@@ -89,11 +89,15 @@ public class RMIClient1 {
                                 String phone = ManagerScanner.next();
                                 String specialization = ManagerScanner.next();
 
+                                firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+                                lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+
                                 String location = ManagerScanner.next();
                                 while (!(location.equals("mtl") || location.equals("lvl") || location.equals("ddo"))) {
                                     System.out.println("Location is invalid, please try again.(mtl,lvl,ddo)\n");
                                     location = ManagerScanner.next();
                                 }
+
                                 boolean result = r_Interface.createTRecord(ManagerID, firstName, lastName, address, phone, specialization, location);
                                 if (result) {
                                     System.out.println("success!");
@@ -125,6 +129,8 @@ public class RMIClient1 {
                                 }
                                 String StatusDate = ManagerScanner.next();
 
+                                firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+                                lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
                                 result = r_Interface.createSRecord(ManagerID, firstName, lastName, CoursesRegister, Status, StatusDate);
                                 if (result) {
                                     System.out.println("success!");
