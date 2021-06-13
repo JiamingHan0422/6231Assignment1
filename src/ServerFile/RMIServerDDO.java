@@ -12,11 +12,6 @@ public class RMIServerDDO {
         DatagramSocket server = null;
         try {
 
-            // 注册远程对象,向客户端提供远程对象服务。
-            // 远程对象是在远程服务上创建的，你无法确切地知道远程服务器上的对象的名称，
-            // 但是,将远程对象注册到RMI Registry之后,
-            // 客户端就可以通过RMI Registry请求到该远程服务对象的stub，
-            // 利用stub代理就可以访问远程服务对象了。
             rmiCenterServer r_Interface = new rmiMethodDDO();
 
             File DDOFile = new File("");
@@ -26,7 +21,8 @@ public class RMIServerDDO {
                 try {
                     DDOFile.createNewFile();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
+                    System.out.println("The Map is Empty!");
                 }
             }
 
@@ -49,8 +45,6 @@ public class RMIServerDDO {
             LocateRegistry.createRegistry(6233);
             java.rmi.Naming.rebind("rmi://localhost:6233/r_Interface", r_Interface);
             System.out.print("Server Ready! " + "\n");
-            // 如果不想再让该对象被继续调用，使用下面一行
-            // UnicastRemoteObject.unexportObject(remoteMath, false);
 
             try {
                 server = new DatagramSocket(5051);
@@ -63,7 +57,6 @@ public class RMIServerDDO {
                     String recvStr = new String(recvPacket.getData(), 0, recvPacket.getLength());
                     System.out.println("Hello World!" + recvStr);
 
-                    //根据获得的端口和IP地址的发送过程
                     int port = recvPacket.getPort();
                     InetAddress addr = recvPacket.getAddress();
                     String sendStr = r_Interface.getRecordCounts();
