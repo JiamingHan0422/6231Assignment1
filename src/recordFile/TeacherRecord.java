@@ -13,11 +13,15 @@ public class TeacherRecord extends Record{
                          String Phone, String Specialization, String Location) {
 
         super(firstName, lastName);
-        this.recordID="TR"+String.valueOf(++idCounter);
+        this.recordID="TR"+String.valueOf(idCounter);
         this.Address = Address;
         this.Phone = Phone;
         this.Location = Location;
         this.Specialization = Specialization;
+    }
+
+    public void setRecordID(int counter){
+        this.recordID="TR"+String.valueOf(idCounter + counter);
     }
 
     public String getAddress() {
@@ -38,19 +42,19 @@ public class TeacherRecord extends Record{
 
     public boolean changeValue(String fieldName, String newValue){
 
-        if(fieldName.equalsIgnoreCase("Address")){
+        if(fieldName.equalsIgnoreCase("address")){
             System.out.println("Old value:" + this.Address);
             this.Address=newValue;
             System.out.println("New value:" + this.Address);
             return true;
         }
-        else if(fieldName.equalsIgnoreCase("Phone")){
+        else if(fieldName.equalsIgnoreCase("phone")){
             System.out.println("Old value:" + this.Phone);
             this.Phone=newValue;
             System.out.println("New value:" + this.Phone);
             return true;
         }
-        else if(fieldName.equalsIgnoreCase("Location")){
+        else if(fieldName.equalsIgnoreCase("location")){
             if(newValue.equals("mtl")||newValue.equals("lvl")||newValue.equals("ddo")){
                 System.out.println("Old value:" + this.Location);
                 this.Location=newValue;

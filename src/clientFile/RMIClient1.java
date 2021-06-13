@@ -134,7 +134,7 @@ public class RMIClient1 {
                         System.out.println("------------------------------------------------------");
                         System.out.println("The Teacher Record: address, phone, specialization, location(mtl,lvl,ddo) can be changed");
                         System.out.println("------------------------------------------------------");
-                        System.out.println("The Student Record: CoursesRegister, Status(active/inactive), StatusDate can be changed");
+                        System.out.println("The Student Record: coursesregistered, status(active/inactive), statusdate can be changed");
                         System.out.println("------------------------------------------------------");
                         System.out.println("Enter: RecordID, fieldName, newValue,");
                         System.out.println("------------------------------------------------------");
