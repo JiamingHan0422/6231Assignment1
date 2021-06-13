@@ -95,3 +95,72 @@ Location: lvl
 Time: Sun Jun 13 09:34:15 CST 2021 
 
 
+ManagerID: DDO10001
+Create Teacher Record.
+Name: rrr rrr
+Address: rrr 
+Phone: rrr 
+Specialization: rrr 
+Location: mtl 
+Time: Sun Jun 13 10:42:54 CST 2021 
+
+
+ManagerID: DDO111
+Create Student Record.
+Name: ttt ttt
+CoursesRegister: ttt 
+Status: active 
+StatusDate: ttt 
+Time: Sun Jun 13 10:57:16 CST 2021 
+
+
+ManagerID: DDO1111
+Create Teacher Record.
+Name: qwe qwe
+Address: qwe 
+Phone: qwe 
+Specialization: qwe 
+Location: mtl 
+Time: Sun Jun 13 11:00:52 CST 2021 
+
+
+ManagerID: DDO111
+Create Teacher Record.
+Name: 123 123
+Address: 123 
+Phone: 123 
+Specialization: 123 
+Location: ddo 
+Time: Sun Jun 13 11:02:15 CST 2021 
+
+
+ManagerID: DDO11111
+Create Teacher Record.
+Name: qweqwe qwe
+Address: qwe 
+Phone: qweqw 
+Specialization: e 
+Location: mtl 
+Time: Sun Jun 13 13:37:42 CST 2021 
+
+
+ManagerID: DDO1001
+Create Teacher Record.
+Name: qwe qwe
+Address: qwe 
+Phone: qwe 
+Specialization: qwe 
+Location: mtl 
+Time: Sun Jun 13 13:43:02 CST 2021 
+
+
+ManagerID: DDO333
+Create Teacher Record.
+Name: qwe qwe
+Address: qew 
+Phone: qwe 
+Specialization: qwe 
+Location: mtl 
+Time: Sun Jun 13 14:02:25 CST 2021 
+
+

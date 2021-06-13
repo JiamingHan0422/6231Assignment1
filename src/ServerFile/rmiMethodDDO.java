@@ -5,10 +5,11 @@ import recordFile.Record;
 import recordFile.StudentRecord;
 import recordFile.TeacherRecord;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.text.SimpleDateFormat;
@@ -146,7 +147,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
                 "Location: " + Location + " " + "\n" +
                 "Time: " + getTime() + " " + "\n" + "\n";
         writeLog(writeInLog);
-
+        save();
         return true;
     }
 
@@ -220,6 +221,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
                 "StatusDate: " + StatusDate + " " + "\n" +
                 "Time: " + getTime() + " " + "\n" + "\n";
         this.writeLog(writeInLog);
+        save();
 
         return true;
 
@@ -268,6 +270,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
                         "newValue: " + newValue + " " + "\n" +
                         "Time: " + getTime() + " " + "\n" + "\n";
                 writeLog(writeInLog);
+                save();
             }
             else{
                 System.out.println("No Record.");
@@ -312,6 +315,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
                         "newValue: " + newValue + " " + "\n" +
                         "Time: " + getTime() + " " + "\n" + "\n";
                 writeLog(writeInLog);
+                save();
             }
             else{
                 System.out.println("No Record.");
@@ -358,6 +362,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
                         "newValue: " + newValue + " " + "\n" +
                         "Time: " + getTime() + " " + "\n" + "\n";
                 writeLog(writeInLog);
+                save();
             }
             else{
                 System.out.println("No Record.");
@@ -420,7 +425,10 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
 
     @Override
     public String getRecordCounts() throws RemoteException {
-        return null;
+
+        String sendStr = "DDO " + String.valueOf(DDOcount);
+        return sendStr;
+
     }
 
     public  String getTime(){
@@ -429,5 +437,20 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
         Date date = new Date();
         String time = date.toString();
         return time;
+    }
+
+    public void save(){
+        try {
+            FileOutputStream l_saveFile = null;
+            l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt");
+            ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
+            l_Save.writeObject(this);
+            l_Save.flush();
+            l_Save.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("write object success!");
     }
 }
