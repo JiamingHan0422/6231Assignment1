@@ -7,6 +7,8 @@ public class StudentRecord extends Record{
     String CoursesRegistered;
     String Status;
     String StatusDate;
+
+    //constructor
     public StudentRecord(String firstName, String lastName, String CoursesRegistered,
                           String Status, String StatusDate){
 
@@ -17,6 +19,7 @@ public class StudentRecord extends Record{
         this.StatusDate = StatusDate;
 
     }
+
     public void setRecordID(int counter){
         this.recordID="SR"+String.valueOf(idCounter + counter);
     }
@@ -33,6 +36,7 @@ public class StudentRecord extends Record{
         return StatusDate;
     }
 
+    //determin if the value can be changed. When the edit record is executed, the value of the corresponding fiel is updated according to the fieldName。
     public boolean changeValue(String fieldName, String newValue){
 
         if(fieldName.equalsIgnoreCase("status")){

@@ -9,6 +9,7 @@ public class TeacherRecord extends Record{
     String Specialization;
     String Location;
 
+    //constructor
     public TeacherRecord(String firstName, String lastName, String Address,
                          String Phone, String Specialization, String Location) {
 
@@ -40,6 +41,7 @@ public class TeacherRecord extends Record{
         return Location;
     }
 
+    //determin if the value can be changed. When the edit record is executed, the value of the corresponding fiel is updated according to the fieldName。
     public boolean changeValue(String fieldName, String newValue){
 
         if(fieldName.equalsIgnoreCase("address")){
