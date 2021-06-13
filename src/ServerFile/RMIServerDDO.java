@@ -16,7 +16,7 @@ public class RMIServerDDO {
 
             File DDOFile = new File("");
             String FilePath = DDOFile.getAbsolutePath();
-            DDOFile = new File(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt");
+            DDOFile = new File(FilePath + "\\" + "LogFile" + "\\" + "DDOFile" + "\\" + "DDOServer" + ".txt");
             if (!DDOFile.exists()) {
                 try {
                     DDOFile.createNewFile();
@@ -29,7 +29,7 @@ public class RMIServerDDO {
             try {
 
                 ObjectInputStream l_ois = null;
-                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt"));
+                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "\\" + "LogFile" + "\\" + "DDOFile" + "\\" + "DDOServer" + ".txt"));
 
                 try {
                     r_Interface = (rmiCenterServer) l_ois.readObject();

@@ -20,7 +20,7 @@ public class DDOServerTest {
     public void before(){
         try {
             rmiMethodDDO = new rmiMethodDDO();
-            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt"));
+            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "\\" + "LogFile" + "\\" + "DDOFile" + "\\" + "DDOServer" + ".txt"));
             rmiMethodDDO = (ServerFile.rmiMethodDDO) l_ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

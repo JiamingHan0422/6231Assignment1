@@ -18,7 +18,7 @@ public class RMIServerMTL {
 
             File MTLFile = new File("");
             String FilePath = MTLFile.getAbsolutePath();
-            MTLFile = new File(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt");
+            MTLFile = new File(FilePath + "\\" + "LogFile" + "\\" + "MTLFile" + "\\" + "MTLServer" + ".txt");
             if (!MTLFile.exists()) {
                 try {
                     MTLFile.createNewFile();
@@ -31,7 +31,7 @@ public class RMIServerMTL {
             try {
 
                 ObjectInputStream l_ois = null;
-                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt"));
+                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "\\" + "LogFile" + "\\" + "MTLFile" + "\\" + "MTLServer" + ".txt"));
 
                 try {
                     r_Interface = (rmiCenterServer) l_ois.readObject();

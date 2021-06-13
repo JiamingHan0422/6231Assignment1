@@ -36,7 +36,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
 
         super();
 
-        loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "DDOFile"+ "/" + "DDOLog" +".txt");
+        loggingFile = new File( FilePath + "\\" + "LogFile" + "\\" + "DDOFile"+ "\\" + "DDOLog" +".txt");
         if(!loggingFile.exists()){
             try {
                 loggingFile.createNewFile();
@@ -442,7 +442,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
     public void save(){
         try {
             FileOutputStream l_saveFile = null;
-            l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "DDOFile" + "/" + "DDOServer" + ".txt");
+            l_saveFile = new FileOutputStream(FilePath + "\\" + "LogFile" + "\\" + "DDOFile" + "\\" + "DDOServer" + ".txt");
             ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
             l_Save.writeObject(this);
             l_Save.flush();

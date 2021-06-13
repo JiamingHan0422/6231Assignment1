@@ -32,7 +32,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
     public rmiMethodMTL() throws RemoteException {
 
         super();
-        loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "MTLFile"+ "/" + "MTLLog" +".txt");
+        loggingFile = new File( FilePath + "\\" + "LogFile" + "\\" + "MTLFile"+ "\\" + "MTLLog" +".txt");
         if(!loggingFile.exists()){
             try {
                 loggingFile.createNewFile();
@@ -443,7 +443,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
     public void save(){
         try {
             FileOutputStream l_saveFile = null;
-            l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt");
+            l_saveFile = new FileOutputStream(FilePath + "\\" + "LogFile" + "\\" + "MTLFile" + "\\" + "MTLServer" + ".txt");
             ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
             l_Save.writeObject(this);
             l_Save.flush();

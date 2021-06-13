@@ -26,7 +26,7 @@ public class MTLServerTest {
     public void before(){
         try {
             rmiMethodMTL = new rmiMethodMTL();
-            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "MTLFile" + "/" + "MTLServer" + ".txt"));
+            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "\\" + "LogFile" + "\\" + "MTLFile" + "\\" + "MTLServer" + ".txt"));
             rmiMethodMTL = (ServerFile.rmiMethodMTL) l_ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

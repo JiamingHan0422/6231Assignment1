@@ -26,7 +26,7 @@ public class LVLServerTest {
     public void before(){
         try {
             rmiMethodLVL = new rmiMethodLVL();
-            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "LVLFile" + "/" + "LVLServer" + ".txt"));
+            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + "\\" + "LogFile" + "\\" + "LVLFile" + "\\" + "LVLServer" + ".txt"));
             rmiMethodLVL = (ServerFile.rmiMethodLVL) l_ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

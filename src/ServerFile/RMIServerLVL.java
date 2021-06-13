@@ -17,7 +17,7 @@ public class RMIServerLVL {
 
             File LVLFile = new File("");
             String FilePath = LVLFile.getAbsolutePath();
-            LVLFile = new File(FilePath + "/" + "LogFile" + "/" + "LVLFile"+ "/" + "LVLServer" +".txt");
+            LVLFile = new File(FilePath + "\\" + "LogFile" + "\\" + "LVLFile"+ "\\" + "LVLServer" +".txt");
             if(!LVLFile.exists()){
                 try {
                     LVLFile.createNewFile();
@@ -30,7 +30,7 @@ public class RMIServerLVL {
             try {
 
                 ObjectInputStream l_ois= null;
-                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "/" + "LogFile" + "/" + "LVLFile"+ "/" + "LVLServer" +".txt"));
+                l_ois = new ObjectInputStream(new FileInputStream(FilePath + "\\" + "LogFile" + "\\" + "LVLFile"+ "\\" + "LVLServer" +".txt"));
 
                 try {
                     r_Interface=(rmiCenterServer)l_ois.readObject();

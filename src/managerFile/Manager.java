@@ -14,7 +14,7 @@ public class Manager {
     public void setManagerID(String managerID) {
         ManagerID = managerID;
         String filePath = loggingFile.getAbsolutePath();
-        loggingFile = new File(filePath + "/LogFile/ManagerLog/"+ ManagerID + ".txt");
+        loggingFile = new File(filePath + "\\LogFile\\ManagerLog\\"+ ManagerID + ".txt");
     }
 
     public void writeLog(String log){

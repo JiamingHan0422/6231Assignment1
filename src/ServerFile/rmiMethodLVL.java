@@ -33,7 +33,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
         super();
         //Create the LVL log file.
-        loggingFile = new File( FilePath + "/" + "LogFile" + "/" + "LVLFile"+ "/" + "LVLLog" +".txt");
+        loggingFile = new File( FilePath + "\\" + "LogFile" + "\\" + "LVLFile"+ "\\" + "LVLLog" +".txt");
         if(!loggingFile.exists()){
             try {
                 loggingFile.createNewFile();
@@ -474,7 +474,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
     public void save(){
         try {
             FileOutputStream l_saveFile = null;
-            l_saveFile = new FileOutputStream(FilePath + "/" + "LogFile" + "/" + "LVLFile" + "/" + "LVLServer" + ".txt");
+            l_saveFile = new FileOutputStream(FilePath + "\\" + "LogFile" + "\\" + "LVLFile" + "\\" + "LVLServer" + ".txt");
             ObjectOutputStream l_Save = new ObjectOutputStream(l_saveFile);
             l_Save.writeObject(this);
             l_Save.flush();
