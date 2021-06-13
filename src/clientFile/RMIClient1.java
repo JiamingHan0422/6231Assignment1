@@ -17,8 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * The client (JavaRmi)
+ */
 public class RMIClient1 {
-
 
     public static void main(String[] args){
 
