@@ -378,7 +378,6 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
             for(char key: HashMapMTL.keySet()) {
 
-                // 输出每个 key
                 System.out.print("\n" + key + ", ");
                 Recordlist = HashMapMTL.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
@@ -392,7 +391,6 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
             for(char key: HashMapLVL.keySet()) {
 
-                // 输出每个 key
                 System.out.print("\n" + key + ", ");
                 Recordlist = HashMapLVL.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
@@ -405,7 +403,6 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
 
             for(char key: HashMapDDO.keySet()) {
 
-                // 输出每个 key
                 System.out.print("\n" + key + ", ");
                 Recordlist = HashMapDDO.get(key);
                 for (int i = 0; i < Recordlist.size(); i++) {
