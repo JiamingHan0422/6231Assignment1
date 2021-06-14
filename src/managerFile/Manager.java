@@ -14,7 +14,7 @@ public class Manager {
     public void setManagerID(String managerID) {
         ManagerID = managerID;
         String filePath = loggingFile.getAbsolutePath();
-        loggingFile = new File(filePath + "\\LogFile\\ManagerLog\\"+ ManagerID + ".txt");
+        loggingFile = new File(filePath + "/LogFile/ManagerLog/"+ ManagerID + ".txt");
     }
 
     public void writeLog(String log){
@@ -26,6 +26,7 @@ public class Manager {
                 bufferedWriter.write(log);
                 bufferedWriter.newLine();
                 bufferedWriter.close();
+                fileWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -33,11 +34,13 @@ public class Manager {
         else{
             try {
                 synchronized (this.loggingFile) {
+                    System.out.println("find");
                     FileWriter fileWriter = new FileWriter(this.loggingFile, true);
                     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                     bufferedWriter.write(log);
                     bufferedWriter.newLine();
                     bufferedWriter.close();
+                    fileWriter.close();
                 }
             }catch (IOException e){
                 e.printStackTrace();

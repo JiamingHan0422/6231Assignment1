@@ -85,7 +85,7 @@ public class RMIClient1 {
                             //create Teacher Record
                             case 1:
                                 System.out.println("Please Create Teacher Record.");
-                                System.out.println("Enter: lastName, firstName, address, phone, specialization, location(mtl,lvl,ddo) ");
+                                System.out.println("Enter: firstName, lastName, address, phone, specialization, location(mtl,lvl,ddo) ");
                                 String firstName = ManagerScanner.next();
                                 String lastName = ManagerScanner.next();
                                 String address = ManagerScanner.next();
@@ -122,7 +122,7 @@ public class RMIClient1 {
                             //create Student Record
                             case 2:
                                 System.out.println("Please Create Student Record.");
-                                System.out.println("Enter: lastName, firstName, CoursesRegister, Status(active/inactive), StatusDate");
+                                System.out.println("Enter: firstName, lastName, CoursesRegister, Status(active/inactive), StatusDate");
                                 firstName = ManagerScanner.next();
                                 lastName = ManagerScanner.next();
                                 String CoursesRegister = ManagerScanner.next();

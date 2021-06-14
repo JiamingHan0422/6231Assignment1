@@ -107,7 +107,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
         if(managerID.startsWith("MTL")){
             // Get the first letter.
             char Mark;
-            Mark = firstName.charAt(0);
+            Mark = lastName.charAt(0);
 
             //Put new record in the record list.
             if(HashMapMTL.containsKey(Mark)){
@@ -126,7 +126,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
         else if(managerID.startsWith("LVL")){
 
             char Mark;
-            Mark = firstName.charAt(0);
+            Mark = lastName.charAt(0);
             if(HashMapLVL.containsKey(Mark)){
                 Recordlist = HashMapLVL.get(Mark);
                 Recordlist.add(NewTRecord);
@@ -141,7 +141,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
         else if(managerID.startsWith("DDO")){
 
             char Mark;
-            Mark = firstName.charAt(0);
+            Mark = lastName.charAt(0);
             if(HashMapDDO.containsKey(Mark)){
                 Recordlist = HashMapDDO.get(Mark);
                 Recordlist.add(NewTRecord);
@@ -196,7 +196,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
 
         if(managerID.startsWith("MTL")){
             char Mark;
-            Mark = firstName.charAt(0);
+            Mark = lastName.charAt(0);
             if(HashMapMTL.containsKey(Mark)){
                 Recordlist = HashMapMTL.get(Mark);
                 Recordlist.add(NewSRecord);
@@ -212,7 +212,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
         else if(managerID.startsWith("LVL")){
 
             char Mark;
-            Mark = firstName.charAt(0);
+            Mark = lastName.charAt(0);
             if(HashMapLVL.containsKey(Mark)){
                 Recordlist = HashMapLVL.get(Mark);
                 Recordlist.add(NewSRecord);
@@ -227,7 +227,7 @@ public class rmiMethodDDO extends UnicastRemoteObject implements rmiCenterServer
         else if(managerID.startsWith("DDO")){
 
             char Mark;
-            Mark = firstName.charAt(0);
+            Mark = lastName.charAt(0);
             if(HashMapDDO.containsKey(Mark)){
                 Recordlist = HashMapDDO.get(Mark);
                 Recordlist.add(NewSRecord);
