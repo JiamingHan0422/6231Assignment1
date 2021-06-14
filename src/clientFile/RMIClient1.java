@@ -60,7 +60,7 @@ public class RMIClient1 {
                     System.out.println("ManagerID is invalid, please try again.");
                     ManagerValid = false;
                 }
-
+                // if the manager ID is valid, then user will have 6 option on the menu, using switch case to do the next operation based on user`s enter.
                 if(ManagerValid) {
                     do {
                         int out = 1;
@@ -76,10 +76,12 @@ public class RMIClient1 {
                         ManagerInput = ManagerScanner.nextInt();
 
                         switch (ManagerInput) {
-
+                            // terminal the program.
                             case 0:
                                 out = 0;
                                 break;
+
+                            //create Teacher Record
                             case 1:
                                 System.out.println("Please Create Teacher Record.");
                                 System.out.println("Enter: lastName, firstName, address, phone, specialization, location(mtl,lvl,ddo) ");
@@ -116,6 +118,7 @@ public class RMIClient1 {
                                 }
                                 break;
 
+                            //create Student Record
                             case 2:
                                 System.out.println("Please Create Student Record.");
                                 System.out.println("Enter: lastName, firstName, CoursesRegister, Status(active/inactive), StatusDate");
@@ -149,7 +152,7 @@ public class RMIClient1 {
                                 }
                                 break;
 
-
+                            // get record count
                             case 3:
 
                                 getCount("DDO");
@@ -158,6 +161,7 @@ public class RMIClient1 {
 
                                 break;
 
+                            //edit record
                             case 4:
                                 System.out.println("------------------------------------------------------");
                                 System.out.println("Please Input the RecordID, fieldName and the newValue.");
@@ -189,6 +193,7 @@ public class RMIClient1 {
                                 }
                                 break;
 
+                             // print record
                             case 5:
                                 result = r_Interface.printRecord(ManagerID);
                                 if (result) {
@@ -239,7 +244,7 @@ public class RMIClient1 {
         String recvStr = null;
         try {
             DatagramSocket client = new DatagramSocket();
-            // 发送过程
+            // sending process
             String sendStr = "I'm Client";
             byte[] sendBuf = sendStr.getBytes();
             InetAddress addr = InetAddress.getByName("127.0.0.1");
@@ -247,7 +252,7 @@ public class RMIClient1 {
             DatagramPacket sendPacketDDO = new DatagramPacket(sendBuf, sendBuf.length, addr, port);
             client.send(sendPacketDDO);
 
-            // 接收过程
+            // receiving process
             byte[] recvBuf = new byte[1000];
             DatagramPacket recvPacket = new DatagramPacket(recvBuf, recvBuf.length);
             client.receive(recvPacket);

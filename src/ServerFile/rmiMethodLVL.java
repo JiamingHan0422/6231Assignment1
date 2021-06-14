@@ -15,8 +15,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 /**
- * 服务器端实现远程接口。
- * 必须继承UnicastRemoteObject，以允许JVM创建远程的存根/代理。
+ * The server implement the remote interface.
+ * Must inherit UnicastRemoteObject to allow JVM to create remote stubs/proxy
  */
 public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer {
 
@@ -256,7 +256,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
         return true;
 
     }
-
+    //Determine whether the teacher record can be edited or changed
     @Override
     public boolean editRecord(String managerID, String recordID, String fieldName, String newValue) throws RemoteException {
         boolean result = false;
@@ -408,6 +408,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
         return result;
     }
 
+    //Print the record to the server in the corresponding region
     @Override
     public boolean printRecord(String managerID) throws RemoteException {
 
@@ -454,6 +455,7 @@ public class rmiMethodLVL extends UnicastRemoteObject implements rmiCenterServer
         return true;
     }
 
+    //Get the number of records of all servers（include current server） from the current server
     @Override
     public String getRecordCounts() throws RemoteException {
         String sendStr = "LVL " + String.valueOf(LVLcount);

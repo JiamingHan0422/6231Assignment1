@@ -4,10 +4,10 @@ import java.rmi.Remote;
 
 public interface rmiCenterServer extends Remote {
     /**
- * 远程接口方法必须抛出 java.rmi.RemoteException
+ * remote interface method should throw java.rmi.RemoteException
      * @return
      */
-    // 所有方法必须抛出RemoteException
+    // all the method should throw RemoteException
 
 
     public boolean createTRecord (String managerID, String firstName, String lastName, String Address,

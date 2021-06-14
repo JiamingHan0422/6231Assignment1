@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="2053.803571428571" y="315.0">managerFile.Manager</node>
+    <node x="1561.554988662131" y="1199.0">ServerFile.RMIServerDDO</node>
+    <node x="535.1785714285712" y="0.0">recordFile.Record</node>
+    <node x="2013.1190476190473" y="870.0">clientFile.RMIClient1</node>
+    <node x="358.0549886621311" y="272.0">recordFile.StudentRecord</node>
+    <node x="1203.554988662131" y="1199.0">ServerFile.RMIServerMTL</node>
+    <node x="845.5549886621311" y="1199.0">ServerFile.RMIServerLVL</node>
+    <node x="0.0" y="1297.0">recordFile.LogEnteyBuffer</node>
+    <node x="1074.7142857142856" y="708.0">ServerFile.rmiMethodDDO</node>
+    <node x="531.9999999999999" y="708.0">ServerFile.rmiMethodMTL</node>
+    <node x="916.0471655328797" y="261.0">recordFile.TeacherRecord</node>
+    <node x="1456.428571428571" y="314.0">ServerFile.rmiCenterServer</node>
+    <node x="0.0" y="708.0">ServerFile.rmiMethodLVL</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ServerFile.rmiMethodMTL" target="recordFile.TeacherRecord">
+      <point x="146.28571428571422" y="-210.5" />
+      <point x="934.2857142857141" y="658.0" />
+      <point x="1161.0471655328797" y="658.0" />
+      <point x="35.0" y="133.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodDDO" target="recordFile.StudentRecord">
+      <point x="-146.2857142857144" y="-210.5" />
+      <point x="1184.428571428571" y="548.0" />
+      <point x="700.8883219954646" y="548.0" />
+      <point x="155.83333333333348" y="122.5" />
+    </edge>
+    <edge source="recordFile.StudentRecord" target="recordFile.Record">
+      <point x="-93.5" y="-122.5" />
+      <point x="451.5549886621311" y="241.0" />
+      <point x="620.2285714285712" y="241.0" />
+      <point x="-9.450000000000045" y="90.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodDDO" target="recordFile.TeacherRecord">
+      <point x="-5.6843418860808015E-14" y="-210.5" />
+      <point x="1330.7142857142856" y="658.0" />
+      <point x="1301.0471655328797" y="658.0" />
+      <point x="175.0" y="133.5" />
+    </edge>
+    <edge source="ServerFile.RMIServerLVL" target="ServerFile.rmiCenterServer">
+      <point x="41.0" y="-26.5" />
+      <point x="968.5549886621311" y="1159.0" />
+      <point x="1712.428571428571" y="1159.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodLVL" target="recordFile.Record">
+      <point x="-146.28571428571445" y="-210.5" />
+      <point x="109.71428571428555" y="598.0" />
+      <point x="211.11904761904736" y="598.0" />
+      <point x="211.11904761904736" y="211.0" />
+      <point x="563.5285714285712" y="211.0" />
+      <point x="-66.14999999999998" y="90.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodDDO" target="ServerFile.rmiCenterServer">
+      <point x="219.42857142857144" y="-210.5" />
+      <point x="1550.1428571428569" y="688.0" />
+      <point x="1639.2857142857142" y="688.0" />
+      <point x="-73.14285714285711" y="80.5" />
+    </edge>
+    <edge source="clientFile.RMIClient1" target="ServerFile.rmiCenterServer">
+      <point x="-65.0" y="-48.5" />
+      <point x="2045.6190476190473" y="688.0" />
+      <point x="1931.8571428571427" y="688.0" />
+      <point x="219.42857142857156" y="80.5" />
+    </edge>
+    <edge source="ServerFile.RMIServerDDO" target="ServerFile.rmiMethodDDO">
+      <point x="-41.0" y="-26.5" />
+      <point x="1602.554988662131" y="1149.0" />
+      <point x="1330.7142857142856" y="1149.0" />
+      <point x="0.0" y="210.5" />
+    </edge>
+    <edge source="ServerFile.RMIServerMTL" target="ServerFile.rmiMethodMTL">
+      <point x="-41.0" y="-26.5" />
+      <point x="1244.554988662131" y="1149.0" />
+      <point x="787.9999999999999" y="1149.0" />
+      <point x="0.0" y="210.5" />
+    </edge>
+    <edge source="ServerFile.RMIServerLVL" target="ServerFile.rmiMethodLVL">
+      <point x="-41.0" y="-26.5" />
+      <point x="886.5549886621311" y="1179.0" />
+      <point x="256.0" y="1179.0" />
+      <point x="0.0" y="210.5" />
+    </edge>
+    <edge source="ServerFile.RMIServerMTL" target="ServerFile.rmiCenterServer">
+      <point x="41.0" y="-26.5" />
+      <point x="1326.554988662131" y="1169.0" />
+      <point x="1800.8690476190473" y="1169.0" />
+      <point x="1800.8690476190473" y="688.0" />
+      <point x="1785.5714285714284" y="688.0" />
+      <point x="73.14285714285711" y="80.5" />
+    </edge>
+    <edge source="ServerFile.RMIServerDDO" target="ServerFile.rmiCenterServer">
+      <point x="40.99999999999994" y="-26.5" />
+      <point x="1684.554988662131" y="1179.0" />
+      <point x="1816.054988662131" y="1179.0" />
+      <point x="1816.054988662131" y="688.0" />
+      <point x="1858.7142857142858" y="688.0" />
+      <point x="146.28571428571445" y="80.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodDDO" target="recordFile.Record">
+      <point x="73.14285714285711" y="-210.5" />
+      <point x="1403.8571428571427" y="658.0" />
+      <point x="1434.928571428571" y="658.0" />
+      <point x="1434.928571428571" y="221.0" />
+      <point x="695.8285714285713" y="221.0" />
+      <point x="66.15000000000009" y="90.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodLVL" target="recordFile.StudentRecord">
+      <point x="-73.14285714285711" y="-210.5" />
+      <point x="182.8571428571429" y="608.0" />
+      <point x="389.22165532879774" y="608.0" />
+      <point x="-155.83333333333337" y="122.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodMTL" target="recordFile.Record">
+      <point x="-219.42857142857156" y="-210.5" />
+      <point x="568.5714285714283" y="598.0" />
+      <point x="336.5549886621311" y="598.0" />
+      <point x="336.5549886621311" y="221.0" />
+      <point x="582.4285714285712" y="221.0" />
+      <point x="-47.25" y="90.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodLVL" target="recordFile.TeacherRecord">
+      <point x="146.28571428571422" y="-210.5" />
+      <point x="402.2857142857142" y="638.0" />
+      <point x="1021.0471655328797" y="638.0" />
+      <point x="-105.0" y="133.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodMTL" target="recordFile.StudentRecord">
+      <point x="-73.14285714285722" y="-210.5" />
+      <point x="714.8571428571427" y="578.0" />
+      <point x="513.8883219954644" y="578.0" />
+      <point x="-31.166666666666742" y="122.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodMTL" target="ServerFile.rmiCenterServer">
+      <point x="219.42857142857144" y="-210.5" />
+      <point x="1007.4285714285713" y="678.0" />
+      <point x="1566.1428571428569" y="678.0" />
+      <point x="-146.28571428571422" y="80.5" />
+    </edge>
+    <edge source="ServerFile.rmiMethodLVL" target="ServerFile.rmiCenterServer">
+      <point x="219.42857142857133" y="-210.5" />
+      <point x="475.42857142857133" y="668.0" />
+      <point x="1493.0" y="668.0" />
+      <point x="-219.42857142857133" y="80.5" />
+    </edge>
+    <edge source="clientFile.RMIClient1" target="managerFile.Manager">
+      <point x="65.0" y="-48.5" />
+      <point x="2175.6190476190473" y="688.0" />
+      <point x="2188.053571428571" y="688.0" />
+      <point x="44.75" y="79.5" />
+    </edge>
+    <edge source="recordFile.TeacherRecord" target="recordFile.Record">
+      <point x="105.0" y="-133.5" />
+      <point x="1231.0471655328797" y="231.0" />
+      <point x="676.9285714285712" y="231.0" />
+      <point x="47.25" y="90.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.48248175182481745" x="1081.3778963293257" y="711.248120300752" />
+  <SelectedNodes>
+    <node>managerFile.Manager</node>
+    <node>ServerFile.RMIServerDDO</node>
+    <node>recordFile.Record</node>
+    <node>clientFile.RMIClient1</node>
+    <node>recordFile.StudentRecord</node>
+    <node>ServerFile.RMIServerMTL</node>
+    <node>ServerFile.RMIServerLVL</node>
+    <node>recordFile.LogEnteyBuffer</node>
+    <node>ServerFile.rmiMethodDDO</node>
+    <node>ServerFile.rmiMethodMTL</node>
+    <node>recordFile.TeacherRecord</node>
+    <node>ServerFile.rmiCenterServer</node>
+    <node>ServerFile.rmiMethodLVL</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

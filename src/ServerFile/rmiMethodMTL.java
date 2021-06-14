@@ -15,8 +15,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 /**
- * 服务器端实现远程接口。
- * 必须继承UnicastRemoteObject，以允许JVM创建远程的存根/代理。
+ * The server implement the remote interface.
+ * Must inherit UnicastRemoteObject to allow JVM to create remote stubs/proxy
  */
 public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer {
 
@@ -42,6 +42,10 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         }
     }
 
+    /**
+     * Write the information to the logfile.
+     * @param log the Operation details.
+     */
     public void writeLog(String log){
         if(!this.loggingFile.exists()){
             try {
@@ -71,6 +75,18 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
     }
 
+    /**
+     * Determine whether teacher records can be created
+     * @param managerID managerID
+     * @param firstName firstName
+     * @param lastName lastName
+     * @param Address Address
+     * @param Phone Phone
+     * @param Specialization Specialization
+     * @param Location Location
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean createTRecord(String managerID, String firstName, String lastName, String Address, String Phone, String Specialization, String Location) throws RemoteException {
 
@@ -90,7 +106,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
             char Mark;
             Mark = firstName.charAt(0);
 
-            //Edit the record list.
+            //Put new record in the record list.
             if(HashMapMTL.containsKey(Mark)){
                 Recordlist = HashMapMTL.get(Mark);
                 Recordlist.add(NewTRecord);
@@ -98,7 +114,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
             }
 
-            //Create new record.
+            //Create new first letter key and the record list.
             else{
                 Recordlist.add(NewTRecord);
                 HashMapMTL.put(Mark, Recordlist);
@@ -154,6 +170,17 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         return true;
     }
 
+    /**
+     * Determine whether student records can be created
+     * @param managerID managerID
+     * @param firstName firstName
+     * @param lastName lastName
+     * @param CoursesRegistered CoursesRegistered
+     * @param Status Status
+     * @param StatusDate StatusDate
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean createSRecord(String managerID, String firstName, String lastName, String CoursesRegistered, String Status, String StatusDate) throws RemoteException {
 
@@ -230,6 +257,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
 
     }
 
+    //Determine whether the teacher record can be edited or changed
     @Override
     public boolean editRecord(String managerID, String recordID, String fieldName, String newValue) throws RemoteException {
 
@@ -380,6 +408,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         return result;
     }
 
+    //Print the record to the server in the corresponding region
     @Override
     public boolean printRecord(String managerID) throws RemoteException {
 
@@ -426,6 +455,7 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         return true;
     }
 
+    //Get the number of records of all servers（include current server） from the current server
     @Override
     public String getRecordCounts() throws RemoteException {
         String sendStr = "MTL " + String.valueOf(MTLcount);
@@ -440,6 +470,9 @@ public class rmiMethodMTL extends UnicastRemoteObject implements rmiCenterServer
         return time;
     }
 
+    /**
+     * Save the Server.
+     */
     public void save(){
         try {
             FileOutputStream l_saveFile = null;
