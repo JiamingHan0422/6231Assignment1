@@ -134,6 +134,7 @@ public class RMIClient1 {
 
                                 firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
                                 lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+
                                 result = r_Interface.createSRecord(ManagerID, firstName, lastName, CoursesRegister, Status, StatusDate);
                                 if (result) {
                                     System.out.println("success!");
