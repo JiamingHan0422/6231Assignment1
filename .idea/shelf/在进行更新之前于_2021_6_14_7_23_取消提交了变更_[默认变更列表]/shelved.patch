@@ -1,0 +1,190 @@
+Index: LogFile/MTLFile/MTLLog.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>ManagerID: MTL10001\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qweqwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sat Jun 12 21:25:01 CST 2021 \r\n\r\n\r\nManagerID: MTL10001\r\nCreate Student Record.\r\nName: qqq qqq\r\nCoursesRegister: qqq \r\nStatus: active \r\nStatusDate: 111 \r\nTime: Sat Jun 12 21:25:26 CST 2021 \r\n\r\n\r\nManagerID: MTL123\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qew \r\nLocation: mtl \r\nTime: Sat Jun 12 21:26:26 CST 2021 \r\n\r\n\r\nManagerID: MTL123\r\nCreate Teacher Record.\r\nName: qqq qqq\r\nAddress: qqq \r\nPhone: qqq \r\nSpecialization: qqq \r\nLocation: mtl \r\nTime: Sat Jun 12 21:26:35 CST 2021 \r\n\r\n\r\nManagerID: MTL123\r\nCreate Teacher Record.\r\nName: eee eee\r\nAddress: eee \r\nPhone: eee \r\nSpecialization: eee \r\nLocation: mtl \r\nTime: Sat Jun 12 21:27:41 CST 2021 \r\n\r\n\r\nManagerID: MTL123\r\nCreate Teacher Record.\r\nName: qqq qqq\r\nAddress: qqq \r\nPhone: qqq \r\nSpecialization: qqq \r\nLocation: mtl \r\nTime: Sat Jun 12 21:28:05 CST 2021 \r\n\r\n\r\nManagerID: MTL10001\r\nCreate Teacher Record.\r\nName: eeeeee eee\r\nAddress: eee \r\nPhone: eee \r\nSpecialization: eee \r\nLocation: mtl \r\nTime: Sun Jun 13 09:42:09 CST 2021 \r\n\r\n\r\nManagerID: MTL10001\r\nCreate Student Record.\r\nName: qwe qwe\r\nCoursesRegister: qwe \r\nStatus: active \r\nStatusDate: 123 \r\nTime: Sun Jun 13 09:42:23 CST 2021 \r\n\r\n\r\nManagerID: MTL2000\r\nCreate Teacher Record.\r\nName: QWEQWE QWE\r\nAddress: QWE \r\nPhone: QWE \r\nSpecialization: QWE \r\nLocation: mtl \r\nTime: Sun Jun 13 09:43:23 CST 2021 \r\n\r\n\r\nManagerID: MTL1233\r\nCreate Teacher Record.\r\nName: QWE QWE\r\nAddress: QWE \r\nPhone: QWE \r\nSpecialization: QWE \r\nLocation: mtl \r\nTime: Sun Jun 13 11:03:52 CST 2021 \r\n\r\n\r\nManagerID: MTL111\r\nCreate Teacher Record.\r\nName: qew qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sun Jun 13 23:20:30 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: MTL111\r\nRecordID: TR10001\r\nfieldName: locat \r\nnewValue: mttt \r\nTime: Sun Jun 13 23:20:56 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: MTL111\r\nRecordID: TR10001\r\nfieldName: locat \r\nnewValue: mttt \r\nTime: Sun Jun 13 23:21:17 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: MTL111\r\nRecordID: TR10001\r\nfieldName: locat \r\nnewValue: mtttddo \r\nTime: Sun Jun 13 23:21:33 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: MTL111\r\nRecordID: TR10001\r\nfieldName: location \r\nnewValue: ddo \r\nTime: Sun Jun 13 23:22:26 CST 2021 \r\n\r\n\r\nManagerID: MTL100001\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: q \r\nLocation: mtl \r\nTime: Sun Jun 13 23:50:14 CST 2021 \r\n\r\n\r\nManagerID: MTL1233\r\nCreate Teacher Record.\r\nName: qweqwe qwe\r\nAddress: wq \r\nPhone: wqe \r\nSpecialization: ee \r\nLocation: mtl \r\nTime: Mon Jun 14 06:17:13 CST 2021 \r\n\r\n\r\nManagerID: MTL666\r\nCreate Teacher Record.\r\nName: jiaming han\r\nAddress: 444 \r\nPhone: 123 \r\nSpecialization: 123 \r\nLocation: mtl \r\nTime: Mon Jun 14 06:18:19 CST 2021 \r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LogFile/MTLFile/MTLLog.txt b/LogFile/MTLFile/MTLLog.txt
+--- a/LogFile/MTLFile/MTLLog.txt	(revision 4c0dc979870ffb2aacd5996d11cf14bc0f35cbeb)
++++ b/LogFile/MTLFile/MTLLog.txt	(date 1623625977031)
+@@ -168,3 +168,13 @@
+ Time: Mon Jun 14 06:18:19 CST 2021 
+ 
+ 
++ManagerID: MTL10001
++Create Teacher Record.
++Name: Zitao Wang
++Address: qwe 
++Phone: 1234566 
++Specialization: cs 
++Location: mtl 
++Time: Mon Jun 14 07:12:56 CST 2021 
++
++
+Index: LogFile/ManagerLog/MTL10001.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Create Teacher Record.\r\nName: qwe qwe\r\nAddress: qweqwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sat Jun 12 21:25:01 CST 2021 \r\n\r\n\r\nCreate Student Record.\r\nName: qqq qqq\r\nCoursesRegister: qqq \r\nStatus: active \r\nStatusDate: 111 \r\nTime: Sat Jun 12 21:25:26 CST 2021 \r\n\r\n\r\nCreate Teacher Record.\r\nName: eeeeee eee\r\nAddress: eee \r\nPhone: eee \r\nSpecialization: eee \r\nLocation: mtl \r\nTime: Sun Jun 13 09:42:09 CST 2021 \r\n\r\n\r\nCreate Student Record.\r\nName: qwe qwe\r\nCoursesRegister: qwe \r\nStatus: active \r\nStatusDate: 123 \r\nTime: Sun Jun 13 09:42:23 CST 2021 \r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LogFile/ManagerLog/MTL10001.txt b/LogFile/ManagerLog/MTL10001.txt
+--- a/LogFile/ManagerLog/MTL10001.txt	(revision 4c0dc979870ffb2aacd5996d11cf14bc0f35cbeb)
++++ b/LogFile/ManagerLog/MTL10001.txt	(date 1623625977040)
+@@ -32,3 +32,12 @@
+ Time: Sun Jun 13 09:42:23 CST 2021 
+ 
+ 
++Create Teacher Record.
++Name: Zitao Wang
++Address: qwe 
++Phone: 1234566 
++Specialization: cs 
++Location: mtl 
++Time: Mon Jun 14 07:12:57 CST 2021 
++
++
+Index: src/Test/DDOServerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Test;\r\n\r\nimport ServerFile.rmiCenterServer;\r\nimport ServerFile.rmiMethodDDO;\r\nimport org.junit.*;\r\n\r\nimport java.io.*;\r\nimport java.rmi.RemoteException;\r\n\r\npublic class DDOServerTest {\r\n\r\n    rmiMethodDDO rmiMethodDDO;\r\n    File DDOFile = new File(\"\");\r\n    String FilePath = DDOFile.getAbsolutePath();\r\n\r\n    /**\r\n     * Loading the database in DDO.\r\n     */\r\n    @Before\r\n    public void before(){\r\n        try {\r\n            rmiMethodDDO = new rmiMethodDDO();\r\n            ObjectInputStream l_ois = new ObjectInputStream(new FileInputStream(FilePath + \"\\\\\" + \"LogFile\" + \"\\\\\" + \"DDOFile\" + \"\\\\\" + \"DDOServer\" + \".txt\"));\r\n            rmiMethodDDO = (ServerFile.rmiMethodDDO) l_ois.readObject();\r\n        } catch (IOException | ClassNotFoundException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n    }\r\n\r\n    /**\r\n     * The test is finish.\r\n     */\r\n    @After\r\n    public void after(){\r\n\r\n        System.out.println(\"This test is OK.\");\r\n\r\n    }\r\n\r\n\r\n    /**\r\n     * Test for creating the teacher record.\r\n     */\r\n    @Test\r\n    public void DDOServerTrecordTest(){\r\n        boolean result;\r\n        try {\r\n            result = rmiMethodDDO.createTRecord(\r\n                    \"DDO11111\",\"firstName\", \"lastName\",\r\n                    \"Address\", \"Phone\", \"Specialization\", \"mtl\");\r\n            Assert.assertEquals(result, true);\r\n\r\n            result = rmiMethodDDO.createTRecord(\r\n                    \"DDO11111\",\"firstName\", \"lastName\",\r\n                    \"Address\", \"Phone\", \"Specialization\", \"XXX\");\r\n            Assert.assertEquals(result, false);\r\n\r\n        } catch (RemoteException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Test for creating the student record.\r\n     */\r\n    @Test\r\n    public void DDOServerSrecordTest(){\r\n        boolean result;\r\n        try {\r\n            result = rmiMethodDDO.createSRecord(\r\n                    \"DDO11111\",\"firstName\", \"lastName\",\r\n                    \"CoursesRegistered\", \"active\", \"StatusDate\");\r\n            Assert.assertEquals(result, true);\r\n\r\n            result = rmiMethodDDO.createSRecord(\r\n                    \"DDO11111\",\"firstName\", \"lastName\",\r\n                    \"CoursesRegistered\", \"XXX\", \"StatusDate\");\r\n            Assert.assertEquals(result, false);\r\n\r\n        } catch (RemoteException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Test for editing record.\r\n     */\r\n    @Test\r\n    public void DDOServerEditrecordTest(){\r\n        boolean result;\r\n        try {\r\n            rmiMethodDDO.createSRecord(\r\n                    \"DDO11111\",\"firstName\", \"lastName\",\r\n                    \"CoursesRegistered\", \"active\", \"StatusDate\");\r\n            rmiMethodDDO.printRecord(\"DDO11111\");\r\n            result = rmiMethodDDO.editRecord(\"DDO11111\", \"SR10001\",\"status\",\"inactive\");\r\n            Assert.assertEquals(result, true);\r\n\r\n\r\n        } catch (RemoteException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Test for editing record.\r\n     */\r\n    @Test\r\n    public void DDOServerGetCountTest(){\r\n        String result;\r\n        try {\r\n            rmiMethodDDO.createSRecord(\r\n                    \"DDO11111\",\"firstName\", \"lastName\",\r\n                    \"CoursesRegistered\", \"active\", \"StatusDate\");\r\n            rmiMethodDDO.printRecord(\"DDO11111\");\r\n\r\n            result = rmiMethodDDO.getRecordCounts();\r\n            System.out.println(result);\r\n\r\n\r\n        } catch (RemoteException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Test/DDOServerTest.java b/src/Test/DDOServerTest.java
+--- a/src/Test/DDOServerTest.java	(revision 4c0dc979870ffb2aacd5996d11cf14bc0f35cbeb)
++++ b/src/Test/DDOServerTest.java	(date 1623625853695)
+@@ -96,7 +96,10 @@
+             rmiMethodDDO.printRecord("DDO11111");
+             result = rmiMethodDDO.editRecord("DDO11111", "SR10001","status","inactive");
+             Assert.assertEquals(result, true);
+-
++            result = rmiMethodDDO.editRecord("DDO11111", "SR10001","stats","inactive");
++            Assert.assertEquals(result, false);
++            result = rmiMethodDDO.editRecord("DDO11111", "SR10001","status","tive");
++            Assert.assertEquals(result, false);
+ 
+         } catch (RemoteException e) {
+             e.printStackTrace();
+@@ -110,6 +113,8 @@
+     public void DDOServerGetCountTest(){
+         String result;
+         try {
++            result = rmiMethodDDO.getRecordCounts();
++            System.out.println(result);
+             rmiMethodDDO.createSRecord(
+                     "DDO11111","firstName", "lastName",
+                     "CoursesRegistered", "active", "StatusDate");
+Index: LogFile/DDOFile/DDOLog.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>ManagerID: DDO10001\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sat Jun 12 21:41:23 CST 2021 \r\n\r\n\r\nManagerID: DDO10001\r\nCreate Student Record.\r\nName: qqq qqq\r\nCoursesRegister: qqq \r\nStatus: active \r\nStatusDate: qqq \r\nTime: Sat Jun 12 21:43:28 CST 2021 \r\n\r\n\r\nManagerID: DDO10001\r\nCreate Teacher Record.\r\nName: QWE QWE\r\nAddress: QWE \r\nPhone: QWE \r\nSpecialization: QWE \r\nLocation: mtl \r\nTime: Sat Jun 12 21:52:10 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: DDO10001\r\nRecordID: TR10001\r\nfieldName: Location \r\nnewValue: lvl \r\nTime: Sat Jun 12 21:52:26 CST 2021 \r\n\r\n\r\nManagerID: DDO1\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: lvl \r\nTime: Sat Jun 12 21:55:34 CST 2021 \r\n\r\n\r\nManagerID: DDO10001\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sat Jun 12 22:00:39 CST 2021 \r\n\r\n\r\nManagerID: DDO123\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: ddo \r\nTime: Sun Jun 13 09:31:16 CST 2021 \r\n\r\n\r\nManagerID: DDO123\r\nCreate Teacher Record.\r\nName: eee eee\r\nAddress: eee \r\nPhone: eee \r\nSpecialization: eee \r\nLocation: mtl \r\nTime: Sun Jun 13 09:32:56 CST 2021 \r\n\r\n\r\nManagerID: DDO123\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sun Jun 13 09:33:40 CST 2021 \r\n\r\n\r\nManagerID: DDO333\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qweqw \r\nSpecialization: eqwe \r\nLocation: lvl \r\nTime: Sun Jun 13 09:34:15 CST 2021 \r\n\r\n\r\nManagerID: DDO10001\r\nCreate Teacher Record.\r\nName: rrr rrr\r\nAddress: rrr \r\nPhone: rrr \r\nSpecialization: rrr \r\nLocation: mtl \r\nTime: Sun Jun 13 10:42:54 CST 2021 \r\n\r\n\r\nManagerID: DDO111\r\nCreate Student Record.\r\nName: ttt ttt\r\nCoursesRegister: ttt \r\nStatus: active \r\nStatusDate: ttt \r\nTime: Sun Jun 13 10:57:16 CST 2021 \r\n\r\n\r\nManagerID: DDO1111\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sun Jun 13 11:00:52 CST 2021 \r\n\r\n\r\nManagerID: DDO111\r\nCreate Teacher Record.\r\nName: 123 123\r\nAddress: 123 \r\nPhone: 123 \r\nSpecialization: 123 \r\nLocation: ddo \r\nTime: Sun Jun 13 11:02:15 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Teacher Record.\r\nName: qweqwe qwe\r\nAddress: qwe \r\nPhone: qweqw \r\nSpecialization: e \r\nLocation: mtl \r\nTime: Sun Jun 13 13:37:42 CST 2021 \r\n\r\n\r\nManagerID: DDO1001\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qwe \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sun Jun 13 13:43:02 CST 2021 \r\n\r\n\r\nManagerID: DDO333\r\nCreate Teacher Record.\r\nName: qwe qwe\r\nAddress: qew \r\nPhone: qwe \r\nSpecialization: qwe \r\nLocation: mtl \r\nTime: Sun Jun 13 14:02:25 CST 2021 \r\n\r\n\r\nManagerID: MTL11111\r\nCreate Teacher Record.\r\nName: firstName lastName\r\nAddress: Address \r\nPhone: Phone \r\nSpecialization: Specialization \r\nLocation: mtl \r\nTime: Sun Jun 13 21:29:41 CST 2021 \r\n\r\n\r\nManagerID: MTL11111\r\nCreate Teacher Record.\r\nName: firstName lastName\r\nAddress: Address \r\nPhone: Phone \r\nSpecialization: Specialization \r\nLocation: mtl \r\nTime: Sun Jun 13 21:31:25 CST 2021 \r\n\r\n\r\nManagerID: MTL11111\r\nCreate Teacher Record.\r\nName: firstName lastName\r\nAddress: Address \r\nPhone: Phone \r\nSpecialization: Specialization \r\nLocation: mtl \r\nTime: Sun Jun 13 21:31:25 CST 2021 \r\n\r\n\r\nManagerID: MTL11111\r\nCreate Teacher Record.\r\nName: firstName lastName\r\nAddress: Address \r\nPhone: Phone \r\nSpecialization: Specialization \r\nLocation: mtl \r\nTime: Sun Jun 13 21:31:41 CST 2021 \r\n\r\n\r\nManagerID: MTL11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:33:58 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:38:16 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:40:27 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:43:20 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: DDO11111\r\nRecordID: SR10001\r\nfieldName: status \r\nnewValue: inactive \r\nTime: Sun Jun 13 21:43:20 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:45:55 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:46:14 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Teacher Record.\r\nName: firstName lastName\r\nAddress: Address \r\nPhone: Phone \r\nSpecialization: Specialization \r\nLocation: mtl \r\nTime: Sun Jun 13 21:51:35 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:51:35 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:51:35 CST 2021 \r\n\r\n\r\nEdit Record.\r\nManagerID: DDO11111\r\nRecordID: SR10001\r\nfieldName: status \r\nnewValue: inactive \r\nTime: Sun Jun 13 21:51:35 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 21:51:35 CST 2021 \r\n\r\n\r\nManagerID: DDO11111\r\nCreate Student Record.\r\nName: firstName lastName\r\nCoursesRegister: CoursesRegistered \r\nStatus: active \r\nStatusDate: StatusDate \r\nTime: Sun Jun 13 22:02:19 CST 2021 \r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LogFile/DDOFile/DDOLog.txt b/LogFile/DDOFile/DDOLog.txt
+--- a/LogFile/DDOFile/DDOLog.txt	(revision 4c0dc979870ffb2aacd5996d11cf14bc0f35cbeb)
++++ b/LogFile/DDOFile/DDOLog.txt	(date 1623625858428)
+@@ -320,3 +320,54 @@
+ Time: Sun Jun 13 22:02:19 CST 2021 
+ 
+ 
++ManagerID: DDO11111
++Create Student Record.
++Name: firstName lastName
++CoursesRegister: CoursesRegistered 
++Status: active 
++StatusDate: StatusDate 
++Time: Mon Jun 14 07:10:02 CST 2021 
++
++
++Edit Record.
++ManagerID: DDO11111
++RecordID: SR10001
++fieldName: status 
++newValue: inactive 
++Time: Mon Jun 14 07:10:02 CST 2021 
++
++
++Edit Record.
++ManagerID: DDO11111
++RecordID: SR10001
++fieldName: stats 
++newValue: inactive 
++Time: Mon Jun 14 07:10:02 CST 2021 
++
++
++Edit Record.
++ManagerID: DDO11111
++RecordID: SR10001
++fieldName: status 
++newValue: tive 
++Time: Mon Jun 14 07:10:02 CST 2021 
++
++
++ManagerID: DDO11111
++Create Student Record.
++Name: firstName lastName
++CoursesRegister: CoursesRegistered 
++Status: active 
++StatusDate: StatusDate 
++Time: Mon Jun 14 07:10:29 CST 2021 
++
++
++ManagerID: DDO11111
++Create Student Record.
++Name: firstName lastName
++CoursesRegister: CoursesRegistered 
++Status: active 
++StatusDate: StatusDate 
++Time: Mon Jun 14 07:10:58 CST 2021 
++
++
+Index: LogFile/DDOFile/DDOServer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>��\u0000\u0005sr\u0000\u0017ServerFile.rmiMethodDDO��\u0010-�\u007F{�\u0002\u0000\u0006I\u0000\bDDOcountL\u0000\bFilePatht\u0000\u0012Ljava/lang/String;L\u0000\nHashMapDDOt\u0000\u0013Ljava/util/HashMap;L\u0000\nHashMapLVLq\u0000~\u0000\u0002L\u0000\nHashMapMTLq\u0000~\u0000\u0002L\u0000\u000BloggingFilet\u0000\u000ELjava/io/File;xr\u0000#java.rmi.server.UnicastRemoteObjectE\t\u0012\u0015��~1\u0002\u0000\u0003I\u0000\u0004portL\u0000\u0003csft\u0000(Ljava/rmi/server/RMIClientSocketFactory;L\u0000\u0003ssft\u0000(Ljava/rmi/server/RMIServerSocketFactory;xr\u0000\u001Cjava.rmi.server.RemoteServer�\u0019\u0007\u0012h�9�\u0002\u0000\u0000xr\u0000\u001Cjava.rmi.server.RemoteObject�a��\fa3\u001E\u0003\u0000\u0000xpw\u0012\u0000\u0010UnicastServerRefx\u0000\u0000\u0000\u0000pp\u0000\u0000\u0000\u0002t\u0000$E:\\Java_IdeaProjects\\6231Assignment1sr\u0000\u0011java.util.HashMap\u0005\u0007���\u0016`�\u0003\u0000\u0002F\u0000\nloadFactorI\u0000\tthresholdxp?@\u0000\u0000\u0000\u0000\u0000\fw\b\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0001sr\u0000\u0013java.lang.Character4�G�k\u001A&x\u0002\u0000\u0001C\u0000\u0005valuexp\u0000fsr\u0000\u0013java.util.ArrayListx��\u001D��a�\u0003\u0000\u0001I\u0000\u0004sizexp\u0000\u0000\u0000\u0002w\u0004\u0000\u0000\u0000\u0002sr\u0000\u0018recordFile.StudentRecord\u000F\u001C��i��T\u0002\u0000\u0003L\u0000\u0011CoursesRegisteredq\u0000~\u0000\u0001L\u0000\u0006Statusq\u0000~\u0000\u0001L\u0000\nStatusDateq\u0000~\u0000\u0001xr\u0000\u0011recordFile.Recorda�~�ag��\u0002\u0000\u0003L\u0000\tfirstNameq\u0000~\u0000\u0001L\u0000\blastNameq\u0000~\u0000\u0001L\u0000\brecordIDq\u0000~\u0000\u0001xpt\u0000\tfirstNamet\u0000\blastNamet\u0000\u0007SR10001t\u0000\u0011CoursesRegisteredt\u0000\u0006activet\u0000\nStatusDatesq\u0000~\u0000\u0011t\u0000\tfirstNamet\u0000\blastNamet\u0000\u0007SR10002t\u0000\u0011CoursesRegisteredt\u0000\u0006activet\u0000\nStatusDatexxsq\u0000~\u0000\u000B?@\u0000\u0000\u0000\u0000\u0000\u0000w\b\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0000xsq\u0000~\u0000\u000B?@\u0000\u0000\u0000\u0000\u0000\u0000w\b\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0000xsr\u0000\fjava.io.File\u0004-�E\u000E\r��\u0003\u0000\u0001L\u0000\u0004pathq\u0000~\u0000\u0001xpt\u0000?E:\\Java_IdeaProjects\\6231Assignment1\\LogFile\\DDOFile\\DDOLog.txtw\u0002\u0000\\x
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LogFile/DDOFile/DDOServer.txt b/LogFile/DDOFile/DDOServer.txt
+--- a/LogFile/DDOFile/DDOServer.txt	(revision 4c0dc979870ffb2aacd5996d11cf14bc0f35cbeb)
++++ b/LogFile/DDOFile/DDOServer.txt	(date 1623625858433)
+@@ -1,9 +1,12 @@
+ �� sr ServerFile.rmiMethodDDO��-�{� I DDOcountL FilePatht Ljava/lang/String;L 
+ HashMapDDOt Ljava/util/HashMap;L 
+ HashMapLVLq ~ L 
+-HashMapMTLq ~ L loggingFilet Ljava/io/File;xr #java.rmi.server.UnicastRemoteObjectE	��~1 I portL csft (Ljava/rmi/server/RMIClientSocketFactory;L ssft (Ljava/rmi/server/RMIServerSocketFactory;xr java.rmi.server.RemoteServer�h�9�  xr java.rmi.server.RemoteObject�a��a3  xpw UnicastServerRefx    pp   t $E:\Java_IdeaProjects\6231Assignment1sr java.util.HashMap���`� F 
+-loadFactorI 	thresholdxp?@     w      sr java.lang.Character4�G�k&x C valuexp fsr java.util.ArrayListx����a� I sizexp   w   sr recordFile.StudentRecord��i��T L CoursesRegisteredq ~ L Statusq ~ L 
+-StatusDateq ~ xr recordFile.Recorda�~�ag�� L 	firstNameq ~ L lastNameq ~ L recordIDq ~ xpt 	firstNamet lastNamet SR10001t CoursesRegisteredt activet 
++HashMapMTLq ~ L loggingFilet Ljava/io/File;xr #java.rmi.server.UnicastRemoteObjectE	��~1 I portL csft (Ljava/rmi/server/RMIClientSocketFactory;L ssft (Ljava/rmi/server/RMIServerSocketFactory;xr java.rmi.server.RemoteServer�h�9�  xr java.rmi.server.RemoteObject�a��a3  xpw UnicastServerRefx    pp   t $E:\Java_IdeaProjects\6231Assignment1sr java.util.HashMap���`� F 
++loadFactorI 	thresholdxp?@     w      sr java.lang.Character4�G�k&x C valuexp fsr java.util.ArrayListx����a� I sizexp   w   sr recordFile.StudentRecord��i��T L CoursesRegisteredq ~ L Statusq ~ L 
++StatusDateq ~ xr recordFile.Recorda�~�ag�� L 	firstNameq ~ L lastNameq ~ L recordIDq ~ xpt 	firstNamet lastNamet SR10001t CoursesRegisteredt inactivet 
+ StatusDatesq ~ t 	firstNamet lastNamet SR10002t CoursesRegisteredt activet 
++StatusDatesq ~ t 	firstNamet lastNamet SR10003t CoursesRegisteredt activet 
++StatusDatesq ~ t 	firstNamet lastNamet SR10004t CoursesRegisteredt activet 
++StatusDatesq ~ t 	firstNamet lastNamet SR10005t CoursesRegisteredt activet 
+ StatusDatexxsq ~ ?@      w       xsq ~ ?@      w       xsr java.io.File-�E
+ �� L pathq ~ xpt ?E:\Java_IdeaProjects\6231Assignment1\LogFile\DDOFile\DDOLog.txtw \x
+\ No newline at end of file
+Index: LogFile/MTLFile/MTLServer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>��\u0000\u0005sr\u0000\u0017ServerFile.rmiMethodMTL3�\\�\u0002N�]\u0002\u0000\u0006I\u0000\bMTLcountL\u0000\bFilePatht\u0000\u0012Ljava/lang/String;L\u0000\nHashMapDDOt\u0000\u0013Ljava/util/HashMap;L\u0000\nHashMapLVLq\u0000~\u0000\u0002L\u0000\nHashMapMTLq\u0000~\u0000\u0002L\u0000\u000BloggingFilet\u0000\u000ELjava/io/File;xr\u0000#java.rmi.server.UnicastRemoteObjectE\t\u0012\u0015��~1\u0002\u0000\u0003I\u0000\u0004portL\u0000\u0003csft\u0000(Ljava/rmi/server/RMIClientSocketFactory;L\u0000\u0003ssft\u0000(Ljava/rmi/server/RMIServerSocketFactory;xr\u0000\u001Cjava.rmi.server.RemoteServer�\u0019\u0007\u0012h�9�\u0002\u0000\u0000xr\u0000\u001Cjava.rmi.server.RemoteObject�a��\fa3\u001E\u0003\u0000\u0000xpw\u0012\u0000\u0010UnicastServerRefx\u0000\u0000\u0000\u0000pp\u0000\u0000\u0000\u0003t\u0000$E:\\Java_IdeaProjects\\6231Assignment1sr\u0000\u0011java.util.HashMap\u0005\u0007���\u0016`�\u0003\u0000\u0002F\u0000\nloadFactorI\u0000\tthresholdxp?@\u0000\u0000\u0000\u0000\u0000\u0000w\b\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0000xsq\u0000~\u0000\u000B?@\u0000\u0000\u0000\u0000\u0000\u0000w\b\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0000xsq\u0000~\u0000\u000B?@\u0000\u0000\u0000\u0000\u0000\fw\b\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0002sr\u0000\u0013java.lang.Character4�G�k\u001A&x\u0002\u0000\u0001C\u0000\u0005valuexp\u0000qsr\u0000\u0013java.util.ArrayListx��\u001D��a�\u0003\u0000\u0001I\u0000\u0004sizexp\u0000\u0000\u0000\u0002w\u0004\u0000\u0000\u0000\u0002sr\u0000\u0018recordFile.TeacherRecordSF��1�\\;\u0002\u0000\u0004L\u0000\u0007Addressq\u0000~\u0000\u0001L\u0000\bLocationq\u0000~\u0000\u0001L\u0000\u0005Phoneq\u0000~\u0000\u0001L\u0000\u000ESpecializationq\u0000~\u0000\u0001xr\u0000\u0011recordFile.Recorda�~�ag��\u0002\u0000\u0003L\u0000\tfirstNameq\u0000~\u0000\u0001L\u0000\blastNameq\u0000~\u0000\u0001L\u0000\brecordIDq\u0000~\u0000\u0001xpt\u0000\u0003qwet\u0000\u0003qwet\u0000\u0007TR10001t\u0000\u0003qwet\u0000\u0003mtlt\u0000\u0003qwet\u0000\u0001qsq\u0000~\u0000\u0013t\u0000\u0006qweqwet\u0000\u0003qwet\u0000\u0007TR10002t\u0000\u0002wqt\u0000\u0003mtlt\u0000\u0003wqet\u0000\u0002eexsq\u0000~\u0000\u000F\u0000jsq\u0000~\u0000\u0011\u0000\u0000\u0000\u0001w\u0004\u0000\u0000\u0000\u0001sq\u0000~\u0000\u0013t\u0000\u0007jiamingt\u0000\u0003hant\u0000\u0007TR10003t\u0000\u0003444t\u0000\u0003mtlt\u0000\u0003123t\u0000\u0003123xxsr\u0000\fjava.io.File\u0004-�E\u000E\r��\u0003\u0000\u0001L\u0000\u0004pathq\u0000~\u0000\u0001xpt\u0000?E:\\Java_IdeaProjects\\6231Assignment1\\LogFile\\MTLFile\\MTLLog.txtw\u0002\u0000\\x
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LogFile/MTLFile/MTLServer.txt b/LogFile/MTLFile/MTLServer.txt
+--- a/LogFile/MTLFile/MTLServer.txt	(revision 4c0dc979870ffb2aacd5996d11cf14bc0f35cbeb)
++++ b/LogFile/MTLFile/MTLServer.txt	(date 1623625977033)
+@@ -1,6 +1,6 @@
+ �� sr ServerFile.rmiMethodMTL3�\�N�] I MTLcountL FilePatht Ljava/lang/String;L 
+ HashMapDDOt Ljava/util/HashMap;L 
+ HashMapLVLq ~ L 
+-HashMapMTLq ~ L loggingFilet Ljava/io/File;xr #java.rmi.server.UnicastRemoteObjectE	��~1 I portL csft (Ljava/rmi/server/RMIClientSocketFactory;L ssft (Ljava/rmi/server/RMIServerSocketFactory;xr java.rmi.server.RemoteServer�h�9�  xr java.rmi.server.RemoteObject�a��a3  xpw UnicastServerRefx    pp   t $E:\Java_IdeaProjects\6231Assignment1sr java.util.HashMap���`� F 
+-loadFactorI 	thresholdxp?@      w       xsq ~ ?@      w       xsq ~ ?@     w      sr java.lang.Character4�G�k&x C valuexp qsr java.util.ArrayListx����a� I sizexp   w   sr recordFile.TeacherRecordSF��1�\; L Addressq ~ L Locationq ~ L Phoneq ~ L Specializationq ~ xr recordFile.Recorda�~�ag�� L 	firstNameq ~ L lastNameq ~ L recordIDq ~ xpt qwet qwet TR10001t qwet mtlt qwet qsq ~ t qweqwet qwet TR10002t wqt mtlt wqet eexsq ~  jsq ~    w   sq ~ t jiamingt hant TR10003t 444t mtlt 123t 123xxsr java.io.File-�E
++HashMapMTLq ~ L loggingFilet Ljava/io/File;xr #java.rmi.server.UnicastRemoteObjectE	��~1 I portL csft (Ljava/rmi/server/RMIClientSocketFactory;L ssft (Ljava/rmi/server/RMIServerSocketFactory;xr java.rmi.server.RemoteServer�h�9�  xr java.rmi.server.RemoteObject�a��a3  xpw UnicastServerRefx    pp   t $E:\Java_IdeaProjects\6231Assignment1sr java.util.HashMap���`� F 
++loadFactorI 	thresholdxp?@      w       xsq ~ ?@      w       xsq ~ ?@     w      sr java.lang.Character4�G�k&x C valuexp qsr java.util.ArrayListx����a� I sizexp   w   sr recordFile.TeacherRecordSF��1�\; L Addressq ~ L Locationq ~ L Phoneq ~ L Specializationq ~ xr recordFile.Recorda�~�ag�� L 	firstNameq ~ L lastNameq ~ L recordIDq ~ xpt qwet qwet TR10001t qwet mtlt qwet qsq ~ t qweqwet qwet TR10002t wqt mtlt wqet eexsq ~  jsq ~    w   sq ~ t jiamingt hant TR10003t 444t mtlt 123t 123xsq ~  Zsq ~    w   sq ~ t Zitaot Wangt TR10004t qwet mtlt 1234566t csxxsr java.io.File-�E
+ �� L pathq ~ xpt ?E:\Java_IdeaProjects\6231Assignment1\LogFile\MTLFile\MTLLog.txtw \x
+\ No newline at end of file

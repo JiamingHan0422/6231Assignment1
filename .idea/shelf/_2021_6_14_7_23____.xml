@@ -1,0 +1,29 @@
+<changelist name="在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]" date="1623626590477" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]/shelved.patch" />
+  <option name="DESCRIPTION" value="在进行更新之前于 2021/6/14 7:23 取消提交了变更 [默认变更列表]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/6231Assignment1/ServerFile/rmiMethodDDO.class" />
+    <option name="AFTER_PATH" value="out/production/6231Assignment1/ServerFile/rmiMethodDDO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]/rmiMethodDDO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/6231Assignment1/ServerFile/rmiMethodMTL.class" />
+    <option name="AFTER_PATH" value="out/production/6231Assignment1/ServerFile/rmiMethodMTL.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]/rmiMethodMTL.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/6231Assignment1/managerFile/Manager.class" />
+    <option name="AFTER_PATH" value="out/production/6231Assignment1/managerFile/Manager.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]/Manager.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/6231Assignment1/ServerFile/RMIServerMTL.class" />
+    <option name="AFTER_PATH" value="out/production/6231Assignment1/ServerFile/RMIServerMTL.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]/RMIServerMTL.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/6231Assignment1/ServerFile/rmiMethodLVL.class" />
+    <option name="AFTER_PATH" value="out/production/6231Assignment1/ServerFile/rmiMethodLVL.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2021_6_14_7_23_取消提交了变更_[默认变更列表]/rmiMethodLVL.class" />
+  </binary>
+</changelist>
